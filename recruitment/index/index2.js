@@ -49,17 +49,17 @@ Page({
 },
 	gotonext1(){
 		wx.navigateTo({
-			url: 'second/personalinformation'
+			url: '/personalinformation/personalinformation'
 		})
 	},
 	gotonext4(){
 		wx.navigateTo({
-			url: 'second/feedback'
+			url: '/feedback/feedback'
 		})
 	},
 	gotonext5(){
 		wx.navigateTo({
-			url: 'second/about'
+			url: '/about/about'
 		})
 	},
 	changeData: function(path,changename){

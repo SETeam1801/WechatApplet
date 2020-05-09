@@ -16,10 +16,10 @@
   "pages": [
     "index/index",
     "index/index2",
-    "index/second/feedback",
-    "index/second/about",
-    "index/second/personalinformation",
-    "index/second/notice"
+    "feedback/feedback",
+    "about/about",
+    "personalinformation/personalinformation",
+    "notice/notice"
   ],
   "window": {
     "backgroundTextStyle": "light",
