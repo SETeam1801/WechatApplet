@@ -1,4 +1,3 @@
-
 <text>\n</text>
 <view class = 'imagesize'>
   <van-image
@@ -17,16 +16,6 @@
     />
     <text slot="error">加载失败</text>
   </van-image>
-  <van-action-sheet
-  position='relative'
-  z-index='99999'
-  show="{{ show }}"
-  actions="{{ actions }}"
-  bind:close="onClose"
-  bind:select="onSelect"
-  bind:cancel='onClose'
-  cancel-text="取消"
-  />
 </view>
   <view>
   <van-cell-group>
@@ -57,7 +46,7 @@
     />
     <van-field
     readonly='{{readonly}}'
-    value="{{ class }}"
+    value="{{ myclass }}"
     required='{{must}}'
     clearable
     label="班级:"
@@ -81,4 +70,10 @@
     placeholder="请输入邮箱"
     />
   </van-cell-group>
+</view>
+<view>
+<button class="button2" hover-class='button2_hover' catchtap='choose' >{{buttonname}}!</button>
+</view>
+<view wx:if="{{showsavebutton}}" >
+  <button class="button2" bindtap='savedata' hover-class='button2_hover' catchtap='savedata'>保存</button>
 </view>

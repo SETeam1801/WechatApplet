@@ -45,4 +45,6 @@
     placeholder="请输入邮箱"
     />
   </van-cell-group>
+</view >
+<view wx:if="{{shareshow}}" ><button class="button2" bindtap='sumbit' hover-class='button2_hover' bindtap='gotonext1'>个人信息</button>
 </view>

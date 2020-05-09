@@ -2,7 +2,7 @@ const app = getApp()
 
 Page({
 	data: {
-	value :app.data.name,
+	name :app.data.name,
 	tempFilePaths:'https://img.yzcdn.cn/vant/cat.jpeg',
 	show: false,
 	actions: [
@@ -62,9 +62,10 @@ Page({
 			url: 'second/about'
 		})
 	},
-	changeData: function(path){
+	changeData: function(path,changename){
 		this.setData({
-			tempFilePaths: path
+			tempFilePaths: path,
+			name:changename
 		})
  }
 

@@ -2,9 +2,9 @@ const app = getApp()
 
 Page({
   data: {
-    value:app.data.name,
-    must:true
-    
+    name:app.data.name,
+    must:true,
+    shareshow:false
   },
 
 	onShow() {

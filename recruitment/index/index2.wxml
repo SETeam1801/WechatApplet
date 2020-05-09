@@ -27,8 +27,10 @@
   bind:cancel='onClose'
   cancel-text="取消"
   />
+  
 </view>
-
+<text>\n</text>
+  <view>{{name}}</view>
 <view class = "button1">
   <button class="button2" bindtap='sumbit' hover-class='button2_hover' bindtap='gotonext1'>个人信息</button>
   <button class="button2" bindtap='sumbit' hover-class='button2_hover'>通知</button>

@@ -3,7 +3,7 @@ App({
     name:'App.name',
     school:'App.school',
     college:'App.college',
-    class:'App.class',
+    myclass:'App.myclass',
     phone:'App.phone',
     mailbox:'App.mailbox',
     password : ""
