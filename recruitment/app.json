@@ -1,0 +1,31 @@
+{
+  "tabBar": {
+    "custom": true,
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#000000",
+    "list": [
+      {
+        "pagePath": "index/index"
+      },
+      {
+        "pagePath": "index/index2"
+      }
+    ]
+  },
+  "pages": [
+    "index/index",
+    "index/index2",
+    "index/second/feedback",
+    "index/second/about",
+    "index/second/personalinformation",
+    "index/second/notice"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

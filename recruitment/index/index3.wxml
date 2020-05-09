@@ -1,0 +1,2 @@
+<!--index/index3.wxml-->
+<text>index/index3.wxml{{value}}</text>

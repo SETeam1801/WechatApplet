@@ -1,0 +1,4 @@
+{
+  "usingComponents": {"van-field": "../vant-weapp/dist/field/index"},
+  "navigationBarTitleText": "首页"
+}

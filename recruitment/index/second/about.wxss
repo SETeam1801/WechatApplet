@@ -1,0 +1,10 @@
+/* index/second/about.wxss */
+.p {
+  text-indent: 1em;
+  background: rgb(210, 211, 213);
+  border-style: none;
+  border-top-style:none;
+  border-right-style:none;
+  border-bottom-style:groove;
+  border-left-style:none;
+}

@@ -1,0 +1,11 @@
+{	
+	"navigationBarTitleText": "我的",
+	"usingComponents": {
+		"van-field": "../vant-weapp/dist/field/index",
+		"van-image": "../vant-weapp/dist/image/index",
+		"van-button": "../vant-weapp/dist/button/index",
+		"van-action-sheet": "../vant-weapp/dist/action-sheet/index"
+	
+	}
+
+}

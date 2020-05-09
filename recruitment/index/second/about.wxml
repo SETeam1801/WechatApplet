@@ -1,0 +1,3 @@
+<view class='p'>{{synopsis}}</view>
+<view class='p'>{{phone}}</view>
+<view class='p'>{{mailbox}}</view>

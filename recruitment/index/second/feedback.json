@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "反馈与意见",
+  "usingComponents": {"van-field": "../vant-weapp/dist/field/index"}
+  
+}

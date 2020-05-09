@@ -1,0 +1,38 @@
+
+<text>\n</text>
+<view class = 'imagesize'>
+  <van-image
+    bindtap='showActionSheet'
+    round
+    use-error-slot
+    fit = 'cover'
+    width="60"
+    height="60"
+    src="{{tempFilePaths}}">
+    <van-loading
+      slot="loading"
+      type="spinner"
+      size="20"
+      vertical
+    />
+    <text slot="error">加载失败</text>
+  </van-image>
+  <van-action-sheet
+  position='relative'
+  z-index='99999'
+  show="{{ show }}"
+  actions="{{ actions }}"
+  bind:close="onClose"
+  bind:select="onSelect"
+  bind:cancel='onClose'
+  cancel-text="取消"
+  />
+</view>
+
+<view class = "button1">
+  <button class="button2" bindtap='sumbit' hover-class='button2_hover' bindtap='gotonext1'>个人信息</button>
+  <button class="button2" bindtap='sumbit' hover-class='button2_hover'>通知</button>
+  <button class="button2" bindtap='sumbit' hover-class='button2_hover'>设置</button> 
+  <button class="button2" bindtap='sumbit' hover-class='button2_hover' bindtap='gotonext4'>反馈与意见</button>
+  <button class="button2" bindtap='sumbit' hover-class='button2_hover' bindtap='gotonext5'>关于我们  </button> 
+</view>

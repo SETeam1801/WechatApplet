@@ -1,0 +1,48 @@
+
+ <view>
+  <van-cell-group>
+    <van-field
+      value="{{ name }}"
+      required='{{must}}'
+      clearable
+      label="姓名"
+      placeholder="请输入姓名"
+    />
+    <van-field
+    value="{{ school }}"
+    required='{{must}}'
+    clearable
+    label="学校"
+    placeholder="请输入学校"
+    />
+    <van-field
+    value="{{ college }}"
+    required='{{must}}'
+    clearable
+    label="学院"
+    placeholder="请输入学院"
+    bind:click-icon="onClickIcon"
+    />
+    <van-field
+    value="{{ class }}"
+    required='{{must}}'
+    clearable
+    label="年级专业班级"
+    placeholder="请输入年级专业班级"
+    />
+    <van-field
+    value="{{ phone }}"
+    required='{{must}}'
+    clearable
+    label="联系电话"
+    placeholder="请输入联系电话"
+    />
+    <van-field
+    value="{{ mailbox }}"
+    required='{{must}}'
+    clearable
+    label="邮箱"
+    placeholder="请输入邮箱"
+    />
+  </van-cell-group>
+</view>

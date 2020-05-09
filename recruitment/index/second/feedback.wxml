@@ -1,0 +1,8 @@
+
+<view class='container'>
+  <textarea class='test' placeholder='请输入文字' bindinput="getWords" maxlength='{{maxTextLen}} ' bindblur='get'></textarea>
+</view>
+<view class='next'>
+ <view class='right' >{{textLen}}/{{maxTextLen}}</view>
+<button class = 'button1' hover-class='button1_hover'>确定</button>
+</view>

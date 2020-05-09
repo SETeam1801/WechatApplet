@@ -1,0 +1,84 @@
+
+<text>\n</text>
+<view class = 'imagesize'>
+  <van-image
+    bindtap='chooseimage'
+    round
+    use-error-slot
+    fit = 'cover'
+    width="60"
+    height="60"
+    src="{{tempFilePaths}}">
+    <van-loading
+      slot="loading"
+      type="spinner"
+      size="20"
+      vertical
+    />
+    <text slot="error">加载失败</text>
+  </van-image>
+  <van-action-sheet
+  position='relative'
+  z-index='99999'
+  show="{{ show }}"
+  actions="{{ actions }}"
+  bind:close="onClose"
+  bind:select="onSelect"
+  bind:cancel='onClose'
+  cancel-text="取消"
+  />
+</view>
+  <view>
+  <van-cell-group>
+    <van-field
+      readonly='{{readonly}}'
+      value="{{ name }}"
+      required='{{must}}'
+      clearable
+      label="姓名:"
+      placeholder="请输入姓名"
+    />
+    <van-field
+    readonly='{{readonly}}'
+    value="{{ school }}"
+    required='{{must}}'
+    clearable
+    label="学校:"
+    placeholder="请输入学校"
+    />
+    <van-field
+    readonly='{{readonly}}'
+    value="{{ college }}"
+    required='{{must}}'
+    clearable
+    label="学院:"
+    placeholder="请输入学院"
+    bind:click-icon="onClickIcon"
+    />
+    <van-field
+    readonly='{{readonly}}'
+    value="{{ class }}"
+    required='{{must}}'
+    clearable
+    label="班级:"
+    placeholder="请输入年级专业班级"
+    />
+    <van-field
+    readonly='{{readonly}}'
+    type='number'
+    value="{{ phone }}"
+    required='{{must}}'
+    clearable
+    label="电话:"
+    placeholder="请输入联系电话"
+    />
+    <van-field
+    readonly='{{readonly}}'
+    value="{{ mailbox }}"
+    required='{{must}}'
+    clearable
+    label="邮箱:"
+    placeholder="请输入邮箱"
+    />
+  </van-cell-group>
+</view>

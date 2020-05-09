@@ -1,0 +1,4 @@
+.imagesize{
+  display:flex;                   
+  justify-content: center;         
+ }
