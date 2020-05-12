@@ -1,2 +1,7 @@
-<!--index/index3.wxml-->
-<text>index/index3.wxml{{value}}</text>
+<view class = 'contain'>
+  <image src="/painting/logo.jpg" class='logo' mode='widthFix'> </image>
+  <image src="/painting/not-logon-0.jpg" class='button' mode='widthFix'> </image>
+  <view class = 'name'>招新通</view>
+</view>
+<view class = 'button1' bindtap='log_on'></view>
+<view class = 'button2' bindtap='register'></view>

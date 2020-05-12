@@ -6,20 +6,27 @@
     "backgroundColor": "#000000",
     "list": [
       {
+
         "pagePath": "index/index"
       },
       {
         "pagePath": "index/index2"
+      },
+      {
+        "pagePath": "index/index3"
       }
     ]
   },
   "pages": [
     "index/index",
     "index/index2",
+    "index/index3",
     "feedback/feedback",
     "about/about",
     "personalinformation/personalinformation",
-    "notice/notice"
+    "notice/notice",
+    "log-on/log-on",
+    "register/register"
   ],
   "window": {
     "backgroundTextStyle": "light",

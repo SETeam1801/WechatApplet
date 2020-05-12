@@ -1,6 +1,6 @@
 
 <view class='container'>
-  <textarea class='test' placeholder='请输入文字' bindinput="getWords" maxlength='{{maxTextLen}} ' bindblur='get'></textarea>
+  <textarea class='test' placeholder='请输入您的反馈或建议' bindinput="getWords" maxlength='{{maxTextLen}} ' bindblur='get'></textarea>
 </view>
 <view class='next'>
  <view class='right' >{{textLen}}/{{maxTextLen}}</view>

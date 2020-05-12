@@ -2,8 +2,9 @@ const app = getApp()
 
 Page({
 	data: {
+	log_on:false,
 	name :app.data.name,
-	tempFilePaths:'https://img.yzcdn.cn/vant/cat.jpeg',
+	tempFilePaths:app.data.tempFilePaths,
 	show: false,
 	actions: [
 		{
@@ -20,12 +21,9 @@ Page({
 
 	onShow() {
 		this.getTabBar().init();
+		this.setData({log_on:app.data.log_on});
 	},
-  onChange(event) {
-		// event.detail 为当前输入的值
-		app.data.name = event.detail,
-    console.log(app.data.name);
-  },
+ 
 	onLoad: function () {
 		
 	},
@@ -64,7 +62,7 @@ Page({
 	},
 	changeData: function(path,changename){
 		this.setData({
-			tempFilePaths: path,
+			tempFilePaths:path,
 			name:changename
 		})
  }

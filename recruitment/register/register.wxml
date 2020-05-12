@@ -72,7 +72,7 @@
     bind:blur = "getmailbox"
     error-message = "{{mailboxerror}}"
     />
-     <van-field
+    <van-field
     readonly='{{readonly}}'
     type='number'
     value="{{ phone }}"
@@ -84,10 +84,28 @@
     error-message = "{{phoneerror}}"
     />
   </van-cell-group>
+  <van-cell-group>
+    <van-field
+    readonly='{{readonly}}'
+    value="{{ password1 }}"
+    required='{{must}}'
+    clearable
+    label="密码:"
+    placeholder="请输入密码"
+    bind:blur = "getpassword1"
+    error-message = "{{password1error}}"
+    />
+    <van-field
+    readonly='{{readonly}}'
+    value="{{ password2 }}"
+    required='{{must}}'
+    clearable
+    placeholder="请再输入一次"
+    bind:blur = "getpassword2"
+    error-message = "{{password2error}}"
+    />
+  </van-cell-group>
 </view>
 <view>
-<button class="button2" hover-class='button2_hover' catchtap='choose' >{{buttonname}}!</button>
-</view>
-<view wx:if="{{showsavebutton}}" >
-  <button class="button2" bindtap='savedata' hover-class='button2_hover' catchtap='savedata'>保存</button>
+<button class="button2" hover-class='button2_hover' catchtap='register_post_button' >确认注册</button>
 </view>

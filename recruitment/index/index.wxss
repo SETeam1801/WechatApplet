@@ -5,4 +5,5 @@
   border-right-style:none;
   border-bottom-style:groove;
   border-left-style:none;
+  color: rgb(126, 10, 214);
 }

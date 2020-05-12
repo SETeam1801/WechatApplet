@@ -1,10 +1,14 @@
-.intro {
-  margin: 30px;
-  text-align: center;
-}
+
 .imagesize{
  display:flex;                   
  justify-content: center;         
+}
+.container{
+  width: 100%;
+  position:absolute;
+  left:0px;
+  top:100px;
+  text-align: center;
 }
 .button1{
   width: 100%;

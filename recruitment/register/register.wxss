@@ -1,0 +1,20 @@
+.imagesize{
+  display:flex;                   
+  justify-content: center;         
+ }
+ .button2
+{
+  font-size: 40rpx;
+  height:40px;
+  width: 100%;
+  margin-top: 30rpx;
+  background-color: #575555;
+  color: rgb(252, 252, 252);
+  border-radius:10px;
+  padding-bottom:100rpx;
+}
+.button2_hover
+{
+  background-color: #302f2f;
+  color: rgb(219, 212, 212);
+}

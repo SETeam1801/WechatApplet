@@ -25,5 +25,6 @@ Page({
   },
   get(e){
     this.value=e.detail.value;
-  }
+  },
 })
+

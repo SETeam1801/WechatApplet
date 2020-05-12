@@ -2,38 +2,10 @@
 <van-tabbar
   active="{{ active }}"
   bind:change="onChange"
-  active-color="#07c160"
-  inactive-color="#909"
+  active-color="rgb(126, 10, 214)"
+  inactive-color="rgb(103, 105, 133)"
   fixed = 'false'
 >
-  <van-tabbar-item>
-    <image
-      slot="icon"
-      src="{{ icon.normal_first }}"
-      mode="aspectFit"
-      style="width: 30px; height: 18px;"
-    />
-    <image
-      slot="icon-active"
-      src="{{ icon.active_first }}"
-      mode="aspectFit"
-      style="width: 30px; height: 18px;"
-    />
-    <view>首页</view>
-  </van-tabbar-item>
-   <van-tabbar-item>
-    <image
-      slot="icon"
-      src="{{ icon.normal_second }}"
-      mode="aspectFit"
-      style="width: 30px; height: 18px;"
-    />
-    <image
-      slot="icon-active"
-      src="{{ icon.active_second }}"
-      mode="aspectFit"
-      style="width: 30px; height: 18px;"
-    />
-    <view>我的</view>
-  </van-tabbar-item>
+  <van-tabbar-item icon="wap-home-o">首页</van-tabbar-item>
+   <van-tabbar-item icon="contact" >我的</van-tabbar-item>
 </van-tabbar>
