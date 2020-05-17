@@ -1,1 +1,62 @@
-/* log-on/log-on.wxss */
+/* index/index3.wxss */
+image {
+  height:auto;
+}
+page{
+  height:100%;
+  width:100%;
+}
+.contain{
+display:flex;
+width:100%;
+height: 100%;
+justify-content: center;
+flex-direction:center
+
+}
+.logo{
+position:absolute;
+top:5%;
+display:flex;
+width:40%;
+}
+.name
+{
+  position:absolute;
+  top:83%;
+  display:flex;
+  font-size:25rpx;
+  color:rgb(57, 4, 101)
+}
+.input
+{
+  justify-content: center;
+  flex-direction:center;
+  position:absolute;
+  top:40%;
+  display:flex;
+  color:rgb(57, 4, 101)
+}
+.button
+{
+  width:44%;
+  position:absolute;
+  top:57%;
+  display:flex;
+  color:rgb(57, 4, 101)
+}
+.button1
+{
+  font-size: 40rpx;
+  height:40px;
+  width: 100%;
+  background-color: #575555;
+  color: rgb(252, 252, 252);
+  border-radius:10px;
+  padding-bottom:100rpx;
+}
+.button1_hover
+{
+  background-color: #302f2f;
+  color: rgb(219, 212, 212);
+}

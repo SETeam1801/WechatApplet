@@ -1,3 +1,6 @@
+image {
+  height:auto;
+}
 .imagesize{
   display:flex;                   
   justify-content: center;         

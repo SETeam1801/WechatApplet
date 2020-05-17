@@ -1,0 +1,58 @@
+
+<van-tabs  
+  sticky
+  duration
+  swipeable
+  v-model="active"
+  title-active-color='rgb(57, 4, 101)'
+  title-inactive-color = "rgb(57, 4, 101)"
+>
+  <van-tab title="已报名">
+    <view class="organizations">
+      <view wx:for="{{organizations_entered}}" wx:key='organizations_id'>
+        <view class = 'organizations_card' >
+          <view class = 'logo_size'>
+            <image src="/学生端/首页/发现二级页.png" class='logo' mode='aspectFit'> </image>
+          </view>
+          <view class = 'title'>
+            {{item.organizations_title}}
+          </view>
+        </view>
+      </view>
+      <view class='placeholder-view'></view>
+    </view>
+  </van-tab>
+  <van-tab title="发现" replace = 'true'>
+    <scroll-view scroll-y lower-threshold="0" style="height: 100vh;" bindscroll='getScroll' >
+      <view class='search'>
+        <van-icon class="search_icon" name="search" size="5vw"></van-icon>
+        <input class="search_input" type="text" placeholder="请输入社团标签" bindconfirm="gotonext6" confirm-type="search" 
+        placeholder-style="font-size: 4.4vw;"/>
+      </view>
+      <view wx:for="{{organizations_find}}" wx:key='organizations_id' bindtap='organizations_details' data-id="{{item.organizations_id}}">
+        <view class = 'organizations_card' >
+          <view class = 'logo_size'>
+            <image src="/学生端/首页/发现二级页.png" class='logo' mode='aspectFit'> </image>
+          </view>
+          <view class = 'title'>
+            {{item.organizations_title}}
+          </view>
+        </view>
+      </view>
+      <view class='message_contain'>
+        <view class = 'message'>
+          <view wx:if="{{loading}}" class = 'message'>
+            <van-loading size="24px">加载中...</van-loading>
+          </view>
+          <view wx:if="{{noMore}}" class = 'message'>
+            <view class='text'>无更多社团！</view>
+          </view>
+          <view wx:if="{{loadingFailed}}" class = 'message'>
+            <van-loading size="24px">加载失败</van-loading>
+          </view>
+        </view>
+      </view>
+      <view class='placeholder-view'></view>
+    </scroll-view>
+  </van-tab>
+</van-tabs>

@@ -1,2 +1,27 @@
-<!--log-on/log-on.wxml-->
-<text>log-on/log-on.wxml</text>
+<view class = 'contain'>
+  <image src="/painting/logo.jpg" class='logo' mode='widthFix'> </image>
+  <view class = 'name'>招新通</view>
+  <view class = 'input'>
+    <van-cell-group>
+    <van-field
+      title-width= '50px'
+      border = 'true'
+      maxlength = '11'
+      label="电话:"
+      placeholder="请输入电话号码"
+      bindinput = "getpho_num"
+      />
+      <van-field
+      title-width= '50px'
+      maxlength = '16'
+      password='true'
+      label="密码:"
+      placeholder="请输入密码"
+      bindinput = "getpassword"
+      />
+    </van-cell-group>
+  </view>
+  <view class = 'button'>
+  <button class="button1" hover-class='button1_hover' catchtap='log_on_post_button' >登录</button>
+  </view>
+</view>

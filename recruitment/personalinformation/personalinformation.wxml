@@ -27,20 +27,22 @@
       clearable
       label = "姓名:"
       placeholder = "请输入姓名"
-      bind:blur= "getname"
+      bindinput= "getname"
       error-message = "{{nameerror}}"
     />
     <van-field
+    maxlength = '40'
     readonly='{{readonly}}'
     value="{{ school }}"
     required='{{must}}'
     clearable
     label="学校:"
     placeholder="请输入学校"
-    bind:blur = "getschool"
+    bindinput = "getschool"
     error-message = "{{schoolerror}}"
     />
     <van-field
+    maxlength = '40'
     readonly='{{readonly}}'
     value="{{ college }}"
     required='{{must}}'
@@ -48,31 +50,34 @@
     label="学院:"
     placeholder="请输入学院"
     bind:click-icon="onClickIcon"
-    bind:blur =  "getcollege"
+    bindinput =  "getcollege"
     error-message = "{{collegeerror}}"
     />
     <van-field
+    maxlength = '40'
     readonly='{{readonly}}'
     value="{{ myclass }}"
     required='{{must}}'
     clearable
     label="班级:"
     placeholder="请输入年级专业班级"
-    bind:blur = "getmyclass"
+    bindinput = "getmyclass"
     error-message = "{{myclasserror}}"
     />
-   
     <van-field
+    maxlength = '20'
     readonly='{{readonly}}'
-    value="{{ mailbox }}"
+    type='number'
+    value="{{ stuID }}"
     required='{{must}}'
     clearable
-    label="邮箱:"
-    placeholder="请输入邮箱"
-    bind:blur = "getmailbox"
-    error-message = "{{mailboxerror}}"
+    label="学号:"
+    placeholder="请输入学号"
+    bindinput = "getstuID"
+    error-message = "{{stuIDerror}}"
     />
-     <van-field
+    <van-field
+    maxlength = '11'
     readonly='{{readonly}}'
     type='number'
     value="{{ phone }}"
@@ -80,9 +85,21 @@
     clearable
     label="电话:"
     placeholder="请输入联系电话"
-    bind:blur = "getphone"
+    bindinput = "getphone"
     error-message = "{{phoneerror}}"
     />
+    <van-field
+    maxlength = '40'
+    readonly='{{readonly}}'
+    value="{{ mailbox }}"
+    required='{{must}}'
+    clearable
+    label="邮箱:"
+    placeholder="请输入邮箱"
+    bindinput = "getmailbox"
+    error-message = "{{mailboxerror}}"
+    />
+     
   </van-cell-group>
 </view>
 <view>

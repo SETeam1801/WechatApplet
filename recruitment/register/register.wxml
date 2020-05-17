@@ -1,4 +1,4 @@
-<text>\n</text>
+
 <view class = 'imagesize'>
   <van-image
     bindtap = 'chooseimage'
@@ -17,7 +17,7 @@
     <text slot = "error">加载失败</text>
   </van-image>
 </view>
-  <view>
+<view >
   <van-cell-group>
     <van-field
       maxlength = '40'
@@ -27,17 +27,18 @@
       clearable
       label = "姓名:"
       placeholder = "请输入姓名"
-      bind:blur= "getname"
+      bindinput= "getname"
       error-message = "{{nameerror}}"
     />
     <van-field
+    maxlength = '40'
     readonly='{{readonly}}'
     value="{{ school }}"
     required='{{must}}'
     clearable
     label="学校:"
     placeholder="请输入学校"
-    bind:blur = "getschool"
+    bindinput = "getschool"
     error-message = "{{schoolerror}}"
     />
     <van-field
@@ -45,34 +46,38 @@
     value="{{ college }}"
     required='{{must}}'
     clearable
+    maxlength = '40'
     label="学院:"
     placeholder="请输入学院"
     bind:click-icon="onClickIcon"
-    bind:blur =  "getcollege"
+    bindinput =  "getcollege"
     error-message = "{{collegeerror}}"
     />
     <van-field
+    maxlength = '40'
     readonly='{{readonly}}'
     value="{{ myclass }}"
     required='{{must}}'
     clearable
     label="班级:"
     placeholder="请输入年级专业班级"
-    bind:blur = "getmyclass"
+    bindinput = "getmyclass"
     error-message = "{{myclasserror}}"
     />
-   
     <van-field
+    maxlength = '20'
     readonly='{{readonly}}'
-    value="{{ mailbox }}"
+    type='number'
+    value="{{ stuID }}"
     required='{{must}}'
     clearable
-    label="邮箱:"
-    placeholder="请输入邮箱"
-    bind:blur = "getmailbox"
-    error-message = "{{mailboxerror}}"
+    label="学号:"
+    placeholder="请输入学号"
+    bindinput = "getstuID"
+    error-message = "{{stuIDerror}}"
     />
-    <van-field
+   <van-field
+    maxlength = '11'
     readonly='{{readonly}}'
     type='number'
     value="{{ phone }}"
@@ -80,28 +85,45 @@
     clearable
     label="电话:"
     placeholder="请输入联系电话"
-    bind:blur = "getphone"
+    bindinput = "getphone"
     error-message = "{{phoneerror}}"
     />
+    <van-field
+    maxlength = '40'
+    readonly='{{readonly}}'
+    value="{{ mailbox }}"
+    required='{{must}}'
+    clearable
+    label="邮箱:"
+    placeholder="请输入邮箱"
+    bindinput = "getmailbox"
+    error-message = "{{mailboxerror}}"
+    />
+    
   </van-cell-group>
   <van-cell-group>
     <van-field
+    maxlength = '16'
+    password='true'
     readonly='{{readonly}}'
     value="{{ password1 }}"
     required='{{must}}'
     clearable
     label="密码:"
-    placeholder="请输入密码"
-    bind:blur = "getpassword1"
+    placeholder="请输入6-16位只含数字与字母密码"
+    bindinput = "getpassword1"
     error-message = "{{password1error}}"
     />
     <van-field
+    maxlength = '18'
+    password='true'
+    label=" "
     readonly='{{readonly}}'
     value="{{ password2 }}"
     required='{{must}}'
     clearable
-    placeholder="请再输入一次"
-    bind:blur = "getpassword2"
+    placeholder="请再输入一次密码"
+    bindinput = "getpassword2"
     error-message = "{{password2error}}"
     />
   </van-cell-group>

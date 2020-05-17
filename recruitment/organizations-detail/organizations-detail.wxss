@@ -1,0 +1,10 @@
+.swiper_image
+{
+  width:100vw;
+  height:50vw;
+  
+}
+.swiper_image image{
+  width:100%;
+  height:100%
+}

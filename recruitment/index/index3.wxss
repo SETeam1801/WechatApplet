@@ -1,4 +1,7 @@
 /* index/index3.wxss */
+image {
+  height:auto;
+}
 page{
   height:100%;
   width:100%;

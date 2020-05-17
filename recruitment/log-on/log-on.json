@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "navigationBarTitleText": "登录",
+  "usingComponents": {	
+    "van-image": "../vant-weapp/dist/image/index",
+    "van-field": "../vant-weapp/dist/field/index"
+  }
 }

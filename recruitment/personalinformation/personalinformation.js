@@ -1,6 +1,5 @@
 // index/second/personalinformation.js
 const App = getApp();
-var prePage = '';
 Page({
   data: 
   {
@@ -16,12 +15,14 @@ Page({
     school: '',
     college: '',
     myclass: '',
+    stuID:'',
     phone: '',
     mailbox: '',
     nameerror: '',
     schoolerror: '',
     collegeerror: '',
     myclasserror: '',
+    stuIDerror: '',
     phoneerror: '',
     mailboxerror: '',
     must: false,
@@ -33,7 +34,6 @@ Page({
 
   onLoad: function (options) 
   {
-    this.getprepage();
     this.setData
       ({
         buttonname: '修改',
@@ -41,27 +41,15 @@ Page({
         readonly: true,
         modify: false,
         showsavebutton: false,
-        name:App.data.name,
-        school:App.data.school,
-        college:App.data.college,
-        myclass:App.data.myclass,
-        phone:App.data.phone,
-        mailbox:App.data.mailbox,
+        name:(App.data.name != undefined) ? App.data.name : '',
+        school:(App.data.school != undefined) ? App.data.school : '',
+        college: (App.data.college != undefined) ? App.data.college : '',
+        myclass: (App.data.myclass != undefined) ? App.data.myclass : '',
+        stuID: (App.data.stuID != undefined) ? App.data.stuID : '',
+        phone: (App.data.phone != undefined) ? App.data.phone : '',
+        mailbox: (App.data.mailbox != undefined) ? App.data.mailbox : '',
+        tempFilePaths:(App.data.tempFilePaths != undefined)?App.data.tempFilePaths:''
       });
-     console.log(this.data.tempFilePaths);
-  },
-  getprepage()
-  {
-    var pages = getCurrentPages();
-        var Page = pages[pages.length - 1];//当前页
-         if(pages.length > 1){ //说明有上一页存在
-             //上一个页面实例对象
-             prePage = pages[pages.length - 2];
-             this.setData
-             ({
-              tempFilePaths: (pages[pages.length - 2]).data.tempFilePaths
-            })
-         }
   },
   chooseimage()
   {
@@ -86,7 +74,6 @@ Page({
   },
   choose()
   {
-    console.log(this.data.name);
     if(this.data.must == false)
     {
       this.setData
@@ -97,7 +84,6 @@ Page({
         modify:true,
         showsavebutton:true
       });
-      
     }
     else
       this.setData
@@ -107,16 +93,19 @@ Page({
         readonly: true,
         modify: false,
         showsavebutton: false,
-        name:App.data.name,
-        school:App.data.school,
-        college:App.data.college,
-        myclass:App.data.myclass,
-        phone:App.data.phone,
-        mailbox:App.data.mailbox,
+        name:(App.data.name != undefined) ? App.data.name : '',
+        school:(App.data.school != undefined) ? App.data.school : '',
+        college: (App.data.college != undefined) ? App.data.college : '',
+        myclass: (App.data.myclass != undefined) ? App.data.myclass : '',
+        stuID: (App.data.stuID != undefined) ? App.data.stuID : '',
+        phone: (App.data.phone != undefined) ? App.data.phone : '',
+        mailbox: (App.data.mailbox != undefined) ? App.data.mailbox : '',
+        tempFilePaths:(App.data.tempFilePaths != undefined)?App.data.tempFilePaths:'',
         nameerror: '',
         schoolerror: '',
         collegeerror: '',
         myclasserror: '',
+        stuIDerror: '',
         phoneerror: '',
         mailboxerror: '',
       });
@@ -124,7 +113,7 @@ Page({
   savedata()
   {
     if(this.data.nameerror == '' && this.data.schoolerror == '' && this.data.collegeerror == '' && 
-    this.data.myclasserror == '' && this.data.phoneerror == '' && this.data.mailboxerror == '')
+    this.data.myclasserror == '' && this.data.phoneerror == '' && this.data.mailboxerror == '' && this.data.stuIDerror == '')
     {
       this.setData({
         buttonname: '修改',
@@ -140,62 +129,70 @@ Page({
       App.data.myclass = this.data.myclass;
       App.data.phone = this.data.phone;
       App.data.mailbox = this.data.mailbox;*/
-      App.getdata(this.data.tempFilePaths, this.data.name, this.data.school, this.data.college, this.data.myclass, this.data.phone, this.data.mailbox)
-      prePage.changeData(this.data.tempFilePaths, this.data.name);
+      App.getdata(this.data.tempFilePaths, this.data.name, this.data.school, this.data.college, this.data.myclass, this.data.stuID, this.data.phone, this.data.mailbox)
     }
   },
   getname(e)
   {
-    if(e.detail.value == '')
+    if(e.detail == '')
     {
       this.setData({nameerror:"请输入名字！"})
     }
     else
-      this.setData({name:e.detail.value, nameerror:''})
+      this.setData({name:e.detail, nameerror:''})
   },
   getschool(e)
   {
-    if(e.detail.value == '')
+    if(e.detail == '')
     {
       this.setData({schoolerror:"请输入学校名字！"})
     }
     else
-      this.setData({school:e.detail.value, schoolerror:''})
+      this.setData({school:e.detail, schoolerror:''})
   },
   getcollege(e)
   {
-    if(e.detail.value == '')
+    if(e.detail == '')
     {
       this.setData({collegeerror:"请输入学院！"})
     }
     else
-      this.setData({college:e.detail.value, collegeerror:''})
+      this.setData({college:e.detail, collegeerror:''})
   },
   getmyclass(e)
   {
-    if(e.detail.value == '')
+    if(e.detail == '')
     {
       this.setData({myclasserror:"请输入年级专业班级！"})
     }
     else
-      this.setData({myclass:e.detail.value, myclasserror:''})
+      this.setData({myclass:e.detail, myclasserror:''})
+  },
+  getstuID(e)
+  {
+    if(!(/^[0-9]{1,20}$/.test(e.detail)))
+    {
+      this.setData({stuIDerror:"请输入正确学号！"})
+    }
+    else
+      this.setData({stuID:e.detail, stuIDerror:''})
   },
   getphone(e)
   {
-    if(!(/^1[34578]\d{9}$/.test(e.detail.value))) 
+    if(!(/^1[34578]\d{9}$/.test(e.detail))) 
     {
       this.setData({phoneerror:"请输入正确手机号码！"})
     }
     else
-      this.setData({phone:e.detail.value, phoneerror:''});
+      this.setData({phone:e.detail, phoneerror:''});
   },
   getmailbox(e)
   {
-    if (!(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/.test(e.detail.value)))
+    if (!(/^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/.test(e.detail)))
     {
       this.setData({mailboxerror:"请输入正确邮箱地址！"})
     }
     else
-      this.setData({mailbox:e.detail.value, mailboxerror:''});
+      this.setData({mailbox:e.detail, mailboxerror:''});
   },
 })

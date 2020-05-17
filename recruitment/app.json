@@ -6,7 +6,6 @@
     "backgroundColor": "#000000",
     "list": [
       {
-
         "pagePath": "index/index"
       },
       {
@@ -26,7 +25,8 @@
     "personalinformation/personalinformation",
     "notice/notice",
     "log-on/log-on",
-    "register/register"
+    "register/register",
+    "organizations-detail/organizations-detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

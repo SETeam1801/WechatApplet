@@ -4,7 +4,7 @@ Page({
 	data: {
 	log_on:false,
 	name :app.data.name,
-	tempFilePaths:app.data.tempFilePaths,
+	tempFilePaths:app.data.tempFilePaths != undefined ? app.data.tempFilePaths : "/painting/logo.jpg",
 	show: false,
 	actions: [
 		{
@@ -21,7 +21,11 @@ Page({
 
 	onShow() {
 		this.getTabBar().init();
-		this.setData({log_on:app.data.log_on});
+		this.setData({
+			log_on:app.data.log_on,
+			name :app.data.name != undefined ? app.data.name : '登录出错',
+			tempFilePaths:app.data.tempFilePaths != undefined ? app.data.tempFilePaths : "/painting/logo.jpg"
+		});
 	},
  
 	onLoad: function () {
@@ -34,7 +38,19 @@ Page({
   onSelect(event) {
 		if(event.detail.name=='退出登录')
 		{
-			console.log('1');
+			app.data.token = '';
+			app.data.log_on = false;
+			app.data.tempFilePaths = '/painting/logo.jpg';
+			app.data.name = '';
+			app.data.school = '';
+			app.data.college = '';
+			app.data.myclass = '';
+			app.data.stuID = '';
+			app.data.phone = '';
+			app.data.mailbox = '';
+			wx.switchTab({
+				url: '/index/index3'
+			})
 		}
 	},
 	toggle(type) {
@@ -60,11 +76,5 @@ Page({
 			url: '/about/about'
 		})
 	},
-	changeData: function(path,changename){
-		this.setData({
-			tempFilePaths:path,
-			name:changename
-		})
- }
 
 })

@@ -1,0 +1,9 @@
+<view>
+  <swiper class = 'swiper_image' indicator-dots="true" indicator-active-color='rgb(126, 10, 214)' indicator-color = 'rgb(103, 105, 133)' autoplay = 'true' interval="2000" duration="1000">
+    <block wx:for = '{{images}}' wx:key="*this" > 
+      <swiper-item>
+        <image src = '{{item}}' mode='aspectFit'/>
+      </swiper-item>
+    </block>
+  </swiper> 
+</view>
