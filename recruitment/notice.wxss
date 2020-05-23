@@ -1,0 +1,15 @@
+.container{
+  text-indent: 1em;
+  color: black;
+  background: white;
+/*   text-align-last: justify; */
+  border-color: grey;
+  border-width: 3px;
+  border-style: solid;
+  border-radius: 15px;
+  
+  width: 90%;
+  margin: auto;
+  top: 20px;
+  margin-bottom: 10px;
+}
