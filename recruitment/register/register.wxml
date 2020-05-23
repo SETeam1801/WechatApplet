@@ -5,8 +5,8 @@
     round
     use-error-slot
     fit = 'cover'
-    width = "60"
-    height = "60"
+    width = "25vw"
+    height = "25vw"
     src = "{{tempFilePaths}}">
     <van-loading
       slot = "loading"

@@ -8,7 +8,7 @@
   title-inactive-color = "rgb(57, 4, 101)"
 >
   <van-tab title="已报名">
-    <scroll-view scroll-y lower-threshold="0" style="height: 100vh;" bindscroll='getScrollEntered' scroll-top='{{topNumEntered}}'>
+    <scroll-view scroll-y lower-threshold="0" style="height: 100vh" bindscroll='getScrollEntered' scroll-top='{{topNumEntered}}' class = >
       <view class='placehead-view'></view>
       <view wx:if="{{loadingEn}}" class = 'message_contain' >
         <view class = 'message'>

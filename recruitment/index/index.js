@@ -6,7 +6,7 @@ Page({
     topNumFind:0,
     searchMassage:'',
     nextPage:0,
-    organizations_entered:[{clubId:1, clubDesc:'全国只有50支，广东省只有两支--QG工作室', clubPictureUrl:"/学生端/首页/发现二级页.png", clubName:"社团名",
+    organizations_entered:[{},{},{},{},{},{clubId:1, clubDesc:'全国只有50支，广东省只有两支--QG工作室', clubPictureUrl:"/学生端/首页/发现二级页.png", clubName:"QG工作室",
       entered:[
         {
         department:"our",
@@ -23,7 +23,7 @@ Page({
     loadingEn:false,
     loadingFailedEn:false,
     loadingSuccess:false,
-    organizations_find:[{clubId:1, clubDesc:'全国只有50支，广东省只有两支--QG工作室', clubPictureUrl:"/学生端/首页/发现二级页.png", clubName:"社团名",}],
+    organizations_find:[{clubId:1, clubDesc:'全国只有50支，广东省只有两支--QG工作室', clubPictureUrl:"/学生端/首页/发现二级页.png", clubName:"青年创新创业",}],
     //发现页数据是否加载完
     noMore: false,
     //发现页加载中
@@ -191,7 +191,6 @@ Page({
       }
     }
   },
-
 
   gotonext6()
   {

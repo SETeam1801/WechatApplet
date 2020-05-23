@@ -12,9 +12,9 @@
       slot = "loading"
       type = "spinner"
       size = "20"
-      vertical
+      verticalxztoux
     />
-    <text slot = "error">加载失败</text>
+    <text slot = "error">请设置头像</text>
   </van-image>
 </view>
 <view class = 'text'><text >\n</text></view>
@@ -102,9 +102,9 @@
     />
   </van-cell-group>
 </view>
-<view>
-  <button class="button2" hover-class='button2_hover' catchtap='choose' >{{buttonname}}!</button>
-</view>
 <view wx:if="{{showsavebutton}}" >
-  <button class="button2" bindtap='savedata' hover-class='button2_hover' catchtap='savedata'>保存</button>
+  <button class="button2" bindtap='savedata' hover-class='button2_hover' catchtap='savedata'>提交</button>
+</view>
+<view>
+  <button class="button2" hover-class='button2_hover' catchtap='choose' >{{buttonname}}</button>
 </view>

@@ -2,9 +2,8 @@ App({
   data:{
     token:'',
     service_url:'http://nomalocaris.top:8080/clubRecruitment/studentSide/' ,
-    log_on:true,
-    savetempFilePaths:'',
-    tempFilePaths:'/painting/logo.jpg',
+    log_on:false,
+    tempFilePaths:'',
     name:'App.name',
     school:'App.school',
     college:'App.college',

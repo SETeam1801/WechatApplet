@@ -137,6 +137,9 @@ Page({
       })
   },
   crop: function() {
+      this.setData({disable:true})
+    let pages = getCurrentPages();
+    let prevPage = pages[pages.length - 2];  //上一个页面
       let that = this,
           img = that.data.img,
           width = that.data.width,
@@ -144,11 +147,7 @@ Page({
           crop = that.data.screenW,
           x = that.data.x,
           y = that.data.y;
-      wx.showToast({
-          title: 'loading...',
-          icon: 'loading',
-          duration: 1000
-      })
+      wx.navigateBack({delta: 1})
       const canvas = wx.createCanvasContext('canvas');
       canvas.drawImage(img, 0, 0, width, height)
       canvas.draw(setTimeout(() => {
@@ -159,15 +158,13 @@ Page({
               height: crop,
               canvasId: 'canvas',
               success: suc => {
-                console.log(suc.tempFilePath)
-                app.data.savetempFilePaths = suc.tempFilePath
-                wx.navigateBack({delta: 1})
+                prevPage.setData({tempFilePaths:suc.tempFilePath})
+
               },
               fail: err => {
-                wx.navigateBack({delta: 1})
               }
           }, this)
-      }, 1000))
+      }, 1))
 
   }
 })

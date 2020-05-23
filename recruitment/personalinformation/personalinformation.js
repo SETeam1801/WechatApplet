@@ -50,14 +50,6 @@ Page({
         mailbox: (App.data.mailbox != undefined) ? App.data.mailbox : '',
         tempFilePaths:(App.data.tempFilePaths != undefined)?App.data.tempFilePaths:''
       });
-      App.data.savetempFilePaths = (App.data.tempFilePaths != undefined)?App.data.tempFilePaths:''
-  },
-  onShow()
-  {
-    if( App.data.savetempFilePaths != undefined && App.data.tempFilePaths != '' && App.data.tempFilePaths != App.data.savetempFilePaths)
-    {
-      this.setData({tempFilePaths : App.data.savetempFilePaths})
-    }
   },
   chooseimage()
   {
