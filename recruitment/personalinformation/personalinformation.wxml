@@ -1,12 +1,12 @@
-<text>\n</text>
+<view class = 'text'><text >\n</text></view>
 <view class = 'imagesize'>
   <van-image
     bindtap = 'chooseimage'
     round
     use-error-slot
     fit = 'cover'
-    width = "60"
-    height = "60"
+    width = "25vw"
+    height = "25vw"
     src = "{{tempFilePaths}}">
     <van-loading
       slot = "loading"
@@ -17,7 +17,8 @@
     <text slot = "error">加载失败</text>
   </van-image>
 </view>
-  <view>
+<view class = 'text'><text >\n</text></view>
+<view >
   <van-cell-group>
     <van-field
       maxlength = '40'
@@ -99,11 +100,10 @@
     bindinput = "getmailbox"
     error-message = "{{mailboxerror}}"
     />
-     
   </van-cell-group>
 </view>
 <view>
-<button class="button2" hover-class='button2_hover' catchtap='choose' >{{buttonname}}!</button>
+  <button class="button2" hover-class='button2_hover' catchtap='choose' >{{buttonname}}!</button>
 </view>
 <view wx:if="{{showsavebutton}}" >
   <button class="button2" bindtap='savedata' hover-class='button2_hover' catchtap='savedata'>保存</button>

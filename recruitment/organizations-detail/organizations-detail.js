@@ -5,18 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-    organizations_id:'',
+    entered:true,
+    organization:[],
     images: [
       'https://img.yzcdn.cn/vant/apple-1.jpg',
       'https://img.yzcdn.cn/vant/apple-2.jpg',
-      "/学生端/首页/发现二级页.png",
-      "/学生端/首页/发现二级页.png",
-      "/学生端/首页/发现二级页.png",
-      "/学生端/首页/发现二级页.png",
-      "/学生端/首页/发现二级页.png",
-      "/学生端/首页/发现二级页.png",
-      "/学生端/首页/发现二级页.png",
-      "/学生端/首页/发现二级页.png",
       "/学生端/首页/发现二级页.png",
       "/学生端/首页/发现二级页.png",
       "/学生端/首页/发现二级页.png",
@@ -27,8 +20,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(decodeURIComponent(options.id)) 
-    this.setData({organizations_id:options.id})
+    this.data.organization = JSON.parse(options.organization)
+    wx.setNavigationBarTitle({
+      title: this.data.organization.clubName
+    })
+    if(this.data.organization.entered == undefined)
+      this.data.entered = false;
+    else
+      this.data.entered = true;
   },
 
   /**

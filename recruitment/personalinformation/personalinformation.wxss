@@ -1,3 +1,7 @@
+.text
+{
+  font-size: 2vw;
+}
 .imagesize{
   display:flex;                   
   justify-content: center;         
