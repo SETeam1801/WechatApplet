@@ -53,30 +53,16 @@ Page({
   },
   chooseimage()
   {
-    if(this.data.must==true)
-    {
-      var _this = this;
-      wx.chooseImage
-      ({
-        count: 1, // 默认9 
-        sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有 
-        sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有 
-        success: function (res) 
-        {
-          // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片 
-          _this.setData({
-            tempFilePaths: res.tempFilePaths
-          });
-          
-        }
+    if(this.data.must == true)
+      wx.navigateTo({
+        url: '/cut-picture/cut-picture'
       })
-    }
   },
   choose()
   {
     if(this.data.must == false)
     {
-      this.setData
+      this.setData//此时为由不可编辑转换为可编辑状态
       ({
         buttonname:'取消',
         must:true,
@@ -110,26 +96,83 @@ Page({
         mailboxerror: '',
       });
   },
+  post_information()
+  {
+    let that = this; 
+    wx.showToast({
+      title: '正在提交修改！',
+      icon:'none'
+    })
+    wx.request({
+      url: that.data.service_url + 'changePersonalInformation/',
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        class: that.data.myclass,
+        college: that.data.college,
+        mailbox: that.data.mailbox,
+        phoNum: that.data.phone,
+        school:  that.data.school,
+        stuId: that.data.stuID,
+        userName: that.data.name,
+      },
+      method: 'POST',
+      success(res) {
+        if(res.data.code == 100)
+        {
+          wx.showToast({
+            title: '修改信息成功！',
+              icon:'none'
+          })
+          App.data.name = that.data.name;
+          App.data.school = that.data.school;
+          App.data.college = that.data.college;
+          App.data.myclass = that.data.myclass;
+          App.data.stuID = that.data.stuID
+          App.data.phone = that.data.phone;
+          App.data.mailbox = that.data.mailbox;
+          that.setData({
+            buttonname: '修改',
+            must: false,
+            readonly: true,
+            modify: false,
+            showsavebutton: false
+          });
+        }
+        else
+        {
+          that.setData({
+            readonly: false,
+          });
+          console.log(res.data.message);
+          wx.showToast({
+            title: res.data.message,
+            icon:'none'
+          })
+        }
+      },
+      fail()
+      {
+        that.setData({
+          readonly: false,
+        });
+        wx.showToast({
+          title: '网络出现问题,修改信息失败！',
+          icon:'none'
+        })
+      }
+    })
+  },
   savedata()
   {
     if(this.data.nameerror == '' && this.data.schoolerror == '' && this.data.collegeerror == '' && 
     this.data.myclasserror == '' && this.data.phoneerror == '' && this.data.mailboxerror == '' && this.data.stuIDerror == '')
     {
       this.setData({
-        buttonname: '修改',
-        must: false,
         readonly: true,
-        modify: false,
-        showsavebutton: false
       });
-      /*App.data.tempFilePaths = this.data.name;
-      App.data.name = this.data.name;
-      App.data.school = this.data.school;
-      App.data.college = this.data.college;
-      App.data.myclass = this.data.myclass;
-      App.data.phone = this.data.phone;
-      App.data.mailbox = this.data.mailbox;*/
-      App.getdata(this.data.tempFilePaths, this.data.name, this.data.school, this.data.college, this.data.myclass, this.data.stuID, this.data.phone, this.data.mailbox)
+      this.post_information();
     }
   },
   getname(e)

@@ -1,15 +1,10 @@
 <view class = 'container'>
-  <view class='title'>{{title1}}</view>
-  <view class='text'><text space="emsp" decode="true">{{text1}}</text></view>
-  <view class="tail">
-  <view class="organ">{{organ1}}</view>
-  <view class="date">{{date1}}</view>
-  </view>
+  <text font-weight='bold'> {{notice1}} \n</text>
+  <text space="emsp" decode="true">  {{text1}}</text>
 </view>
-
 <view class = 'container'> {{notice2}}</view>
 <view class = 'container'> {{notice3}}</view> 
 
- <!-- <view wx:for="{{data}}">
+<!-- <view wx:for="{{data}}">
   {{item}}
-</view>  -->
+</view> -->

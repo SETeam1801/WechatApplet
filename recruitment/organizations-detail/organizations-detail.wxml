@@ -1,3 +1,4 @@
+
 <view>
   <swiper class = 'swiper_image' indicator-dots="true" indicator-active-color='rgb(126, 10, 214)' indicator-color = 'rgb(103, 105, 133)' autoplay = 'true' interval="2000" duration="1000">
     <block wx:for = '{{images}}' wx:key="*this" > 
@@ -6,4 +7,11 @@
       </swiper-item>
     </block>
   </swiper> 
+</view>
+<view class = 'title'>社团介绍</view>
+<view class = 'synopsis'>{{de}}</view>
+<view class = 'title'>部门介绍</view>
+<view wx:for = '{{department}}' wx:key = '*this'>
+  <view class = 'department'>{{item.name}} </view>
+  <view class = 'synopsis'>{{item.de}}</view>
 </view>

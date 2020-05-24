@@ -46,7 +46,13 @@
   font-size:4vw;
   color:rgb(57, 4, 101)
 }
-.placeholder-view {
+.placehead-view 
+{
+  margin-top:1px;
+  margin-right:1px;
+}
+.placeholder-view 
+{
   float:left;
   width: 100%;
   height: 94px;

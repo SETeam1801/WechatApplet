@@ -1,3 +1,7 @@
+.text
+{
+  font-size: 2vw;
+}
 .imagesize{
   display:flex;                   
   justify-content: center;         
@@ -10,7 +14,7 @@
   margin-top: 30rpx;
   background-color: #575555;
   color: rgb(252, 252, 252);
-  border-radius:10px;
+  border-radius:7px;
   padding-bottom:100rpx;
 }
 .button2_hover

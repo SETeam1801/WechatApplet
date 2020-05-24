@@ -1,0 +1,32 @@
+/* pages/index/avatar.wxss */
+page{
+  box-sizing: border-box;
+ background: #050505c5
+}
+.show{
+  border-radius:50%;
+  position: absolute;
+  overflow: hidden;
+  top: 40%;
+  transform: translateY(-50%);
+}
+.img{
+  overflow: scroll;
+}
+
+.cut{
+  width: 100vw;
+  height: 100vw;
+  top:50%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+.bottom{
+  position: absolute;
+  width: 100vw;
+  bottom: 0;
+  
+}
+button{
+  margin-top: 10rpx;
+}

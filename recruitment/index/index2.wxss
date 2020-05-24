@@ -1,23 +1,18 @@
-image {
-  height:auto;
+.text
+{
+  font-size: 2vw;
 }
 .imagesize{
  display:flex;                   
  justify-content: center;         
 }
-.container{
-  width: 100%;
-  position:absolute;
-  left:0px;
-  top:100px;
-  text-align: center;
-}
+
 .button1{
   width: 100%;
   height: 500rpx;
   position:absolute;
   left:0px;
-  top:120px;
+  top:32vw;
 }
 .button2
 {

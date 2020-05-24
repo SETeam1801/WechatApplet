@@ -30,10 +30,12 @@ Page({
     }, 2000);
     return;*/
     let that = this; 
+    app.data.phone = that.data.pho_num;
     wx.request({
       url: app.data.service_url + 'login/',
       header: {
-        'content-type': 'application/json'
+        'content-type':'application/json',
+        //'AUTHORIZATION':'Bearer ' + app.data.token
       },
       data: {
         passWord: that.data.password,
@@ -54,7 +56,6 @@ Page({
           app.data.college =res.data.data.college;
           app.data.myclass = res.data.data.class;
           app.data.stuID = res.data.data.stuId;
-          app.data.phone = res.data.data.phoNum;
           app.data.mailbox = res.data.data.mailbox;
           app.data.tempFilePaths = res.data.data.tempFilePaths;
           setTimeout(function () {
@@ -65,6 +66,7 @@ Page({
         }
         else
         {
+          app.data.phone = '';
           wx.showToast({
             title: res.data.message,
             icon:'none'
@@ -77,6 +79,7 @@ Page({
           title: '网络出现问题,登录失败！',
           icon:'none'
         })
+        app.data.phone = '';
       }
     });
   },

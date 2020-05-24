@@ -26,7 +26,8 @@
     "notice/notice",
     "log-on/log-on",
     "register/register",
-    "organizations-detail/organizations-detail"
+    "organizations-detail/organizations-detail",
+    "cut-picture/cut-picture"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -8,34 +8,56 @@
   title-inactive-color = "rgb(57, 4, 101)"
 >
   <van-tab title="已报名">
-    <view class="organizations">
-      <view wx:for="{{organizations_entered}}" wx:key='organizations_id'>
+    <scroll-view scroll-y lower-threshold="0" style="height: 100vh" bindscroll='getScrollEntered' scroll-top='{{topNumEntered}}' class = >
+      <view class='placehead-view'></view>
+      <view wx:if="{{loadingEn}}" class = 'message_contain' >
+        <view class = 'message'>
+          <view class = 'message'>
+            <van-loading size="24px">加载中...</van-loading>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{loadingSuccess}}" class = 'message_contain' >
+        <view  class = 'message'>
+          <view  class = 'message'>
+            <view class='text'>加载成功！</view>
+          </view>
+        </view>
+      </view>
+      <view wx:if="{{loadingFailedEn}}" class = 'message_contain' >
+        <view  class = 'message'>
+          <view  class = 'message'>
+            <view class='text'>加载失败！</view>
+          </view>
+        </view>
+      </view>
+      <view wx:for="{{organizations_entered}}" wx:key='clubId' bindtap='organizations_details' data-organization="{{item}}">
         <view class = 'organizations_card' >
           <view class = 'logo_size'>
-            <image src="/学生端/首页/发现二级页.png" class='logo' mode='aspectFit'> </image>
+            <image src="{{item.clubPictureUrl}}" class='logo' mode='aspectFit'> </image>
           </view>
           <view class = 'title'>
-            {{item.organizations_title}}
+            {{item.clubDesc}}
           </view>
         </view>
       </view>
       <view class='placeholder-view'></view>
-    </view>
+    </scroll-view>
   </van-tab>
-  <van-tab title="发现" replace = 'true'>
-    <scroll-view scroll-y lower-threshold="0" style="height: 100vh;" bindscroll='getScroll' >
+  <van-tab title="发现" >
+    <scroll-view scroll-y lower-threshold="0" style="height: 100vh;" bindscroll='getScrollFind' scroll-top='{{topNumFind}}'>
       <view class='search'>
         <van-icon class="search_icon" name="search" size="5vw"></van-icon>
-        <input class="search_input" type="text" placeholder="请输入社团标签" bindconfirm="gotonext6" confirm-type="search" 
+        <input class="search_input" type="text" placeholder="请输入社团标签" bindconfirm="search" confirm-type="search" 
         placeholder-style="font-size: 4.4vw;"/>
       </view>
-      <view wx:for="{{organizations_find}}" wx:key='organizations_id' bindtap='organizations_details' data-id="{{item.organizations_id}}">
+      <view wx:for="{{organizations_find}}" wx:key='clubId' bindtap='organizations_details' data-organization="{{item}}">
         <view class = 'organizations_card' >
           <view class = 'logo_size'>
-            <image src="/学生端/首页/发现二级页.png" class='logo' mode='aspectFit'> </image>
+            <image src="{{item.clubPictureUrl}}" class='logo' mode='aspectFit'> </image>
           </view>
           <view class = 'title'>
-            {{item.organizations_title}}
+            {{item.clubDesc}}
           </view>
         </view>
       </view>
@@ -48,7 +70,7 @@
             <view class='text'>无更多社团！</view>
           </view>
           <view wx:if="{{loadingFailed}}" class = 'message'>
-            <van-loading size="24px">加载失败</van-loading>
+            <view class='text'>加载失败！</view>
           </view>
         </view>
       </view>
