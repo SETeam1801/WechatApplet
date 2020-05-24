@@ -8,10 +8,10 @@
     </block>
   </swiper> 
 </view>
-<view class = 'title'>社团简介</view>
-<view class = 'synopsis'><text>{{de}}</text></view>
-<view class = 'title'>部门简介</view>
+<view class = 'title'>社团介绍</view>
+<view class = 'synopsis'>{{de}}</view>
+<view class = 'title'>部门介绍</view>
 <view wx:for = '{{department}}' wx:key = '*this'>
   <view class = 'department'>{{item.name}} </view>
-  <view class = 'synopsis'><text>{{item.de}}</text></view>
+  <view class = 'synopsis'>{{item.de}}</view>
 </view>

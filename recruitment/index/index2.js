@@ -4,7 +4,7 @@ Page({
 	data: {
 	log_on:false,
 	name :app.data.name,
-	tempFilePaths:app.data.tempFilePaths != undefined ? app.data.tempFilePaths : "/painting/logo.jpg",
+	tempFilePaths:app.data.tempFilePaths != undefined ? app.data.tempFilePaths : "",
 	show: false,
 	actions: [
 		{
@@ -24,8 +24,9 @@ Page({
 		this.setData({
 			log_on:app.data.log_on,
 			name :app.data.name != undefined ? app.data.name : '登录出错',
-			tempFilePaths:app.data.tempFilePaths != undefined ? app.data.tempFilePaths : "/painting/logo.jpg"
+			tempFilePaths:app.data.tempFilePaths != undefined ? app.data.tempFilePaths : ""
 		});
+		console.log(2)
 	},
  
 	onLoad: function () {
@@ -40,7 +41,7 @@ Page({
 		{
 			app.data.token = '';
 			app.data.log_on = false;
-			app.data.tempFilePaths = '/painting/logo.jpg';
+			app.data.tempFilePaths = '';
 			app.data.name = '';
 			app.data.school = '';
 			app.data.college = '';
@@ -68,7 +69,7 @@ Page({
 	},
 	gotonext2(){
 		wx.navigateTo({
-			url: '/cut-picture/cut-picture'
+			url: '/notice/notice'
 		})
 	},
 	gotonext4(){

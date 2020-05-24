@@ -3,10 +3,6 @@ view
 {
   color: rgb(57, 4, 101);
 }
-text
-{
-  white-space: pre-wrap;
-}
 .swiper_image
 {
   width:100vw;
@@ -19,6 +15,7 @@ text
 }
 .title
 {
+  font-weight: bolder;
   background-color: rgb(237, 237, 237);
   font-size:6vw;
   width: 100vw;
@@ -33,6 +30,7 @@ text
 }
 .department
 {
+  font-weight: bold;
   background-color: rgb(237, 237, 237);
   font-size:5vw;
   box-sizing: border-box;
@@ -46,5 +44,12 @@ text
 }
 .synopsis
 {
-
+ 
+  width: 96vw;
+  padding: 2vw;
+  word-wrap:break-word;
+  white-space: pre-line;
+  text-align: justify;
 }
+
+

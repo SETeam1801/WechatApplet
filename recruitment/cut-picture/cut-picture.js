@@ -159,7 +159,7 @@ Page({
               canvasId: 'canvas',
               success: suc => {
                 prevPage.setData({tempFilePaths:suc.tempFilePath})
-
+                console.log(1)
               },
               fail: err => {
               }
