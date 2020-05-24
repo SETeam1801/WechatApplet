@@ -66,6 +66,11 @@ Page({
 			url: '/personalinformation/personalinformation'
 		})
 	},
+	gotonext2(){
+	  wx.navigateTo({
+		url: '/notice/notice'
+		})
+	},
 	gotonext4(){
 		wx.navigateTo({
 			url: '/feedback/feedback'

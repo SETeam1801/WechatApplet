@@ -34,7 +34,7 @@
 
 <view class = "button1">
   <button class="button2" hover-class='button2_hover' bindtap='gotonext1'>个人信息</button>
-  <button class="button2" hover-class='button2_hover'>通知</button>
+  <button class="button2" hover-class='button2_hover' bindtap='gotonext2'>通知</button>
   <button class="button2" hover-class='button2_hover'>设置</button> 
   <button open-type="contact" class="button2" hover-class='button2_hover'>反馈与建议</button>
   <button class="button2" hover-class='button2_hover' bindtap='gotonext5'>关于我们  </button> 
