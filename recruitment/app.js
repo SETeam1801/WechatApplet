@@ -1,8 +1,8 @@
 App({
   data:{
-    token:'',
+    token:'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1OTEyNzM2MDcsImlhdCI6MTU5MDQwOTYwNywiZGF0YSI6eyJpZCI6MX19.XCV0pXEyd8Fth21TFQ1vbiWi2RP9eB4J8JgsdoQjZzo',
     service_url:'http://nomalocaris.top:8080/clubRecruitment/studentSide/' ,
-    log_on:false,
+    log_on:true,
     tempFilePaths:'',
     name:'App.name',
     school:'App.school',

@@ -1,6 +1,7 @@
 // index/second/notice.js
+const app = getApp()
 Page({
-
+  i : '0',  
   /**
    * 页面的初始数据
    */
@@ -11,21 +12,21 @@ Page({
     organ1:'党委宣传部',
     date1:'2020/5/22'
   },
-
+ 
   onLoad: function (options) {
+    var that = this;
      wx.request({
-      url: 'http://ip/clubRecruitment/studentSide/findNotices/',
-      data:{
-        
-      },
-      mathod:'POST',
+      url: app.data.service_url + 'findNotices/' + '0',
+      data:{},
+      mathod:'GET',
       header:{
-        'content-Type': 'application/json'
+        // 'content-Type': 'application/json'
+        'AUTHORIZATION' : 'Bearer  ' + app.data.token
       },
       success: function(res){
-        //如果成功的话
+        console.log(res.data);
         that.setData({
-          data: res.data,
+        
         });
       },
       fail:function(res){
