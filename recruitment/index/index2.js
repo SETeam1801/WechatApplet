@@ -68,13 +68,8 @@ Page({
 		})
 	},
 	gotonext2(){
-<<<<<<< HEAD
-	  wx.navigateTo({
-		url: '/notice/notice'
-=======
 		wx.navigateTo({
 			url: '/notice/notice'
->>>>>>> e2b2f51a1d9c96654402506da9b17f07e0639c45
 		})
 	},
 	gotonext4(){

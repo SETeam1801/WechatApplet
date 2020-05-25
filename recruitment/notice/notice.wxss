@@ -1,15 +1,34 @@
 .container{
-  text-indent: 1em;
-  color: black;
-  background: white;
-/*   text-align-last: justify; */
-  border-color: grey;
-  border-width: 3px;
-  border-style: solid;
-  border-radius: 15px;
-  
+  border-radius: 10px;
+  border:1px solid rgb(70, 67, 67);
   width: 90%;
+
   margin: auto;
   top: 20px;
   margin-bottom: 10px;
+}
+
+.title{
+  text-align: center;
+}
+
+.text{
+  text-align: justify;
+}
+
+.tail{
+  display: flex;
+  flex-flow: row;
+}
+
+.organ{
+  color: rgb(146, 142, 142);
+  text-align: left;
+  flex: auto;
+}
+
+.date{
+  color: rgb(146, 142, 142);
+  text-align: right;
+  width: auto;
 }
