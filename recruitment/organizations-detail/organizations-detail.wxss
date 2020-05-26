@@ -44,12 +44,21 @@ view
 }
 .synopsis
 {
- 
   width: 96vw;
   padding: 2vw;
   word-wrap:break-word;
   white-space: pre-line;
   text-align: justify;
 }
-
-
+.recruitment
+{
+  font-weight: bold;
+}
+.recruitmentMessage
+{
+  font-size: 4.2vw;
+}
+.synopsis text
+{
+  font-weight: bold;
+}

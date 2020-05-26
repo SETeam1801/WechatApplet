@@ -1,7 +1,7 @@
 
 <view>
   <swiper class = 'swiper_image' indicator-dots="true" indicator-active-color='rgb(126, 10, 214)' indicator-color = 'rgb(103, 105, 133)' autoplay = 'true' interval="2000" duration="1000">
-    <block wx:for = '{{images}}' wx:key="*this" > 
+    <block wx:for = '{{department.clubPictureUrl}}' wx:key="*this" > 
       <swiper-item>
         <image src = '{{item}}' mode='aspectFit'/>
       </swiper-item>
@@ -9,9 +9,25 @@
   </swiper> 
 </view>
 <view class = 'title'>社团介绍</view>
-<view class = 'synopsis'>{{de}}</view>
+<view class = 'synopsis'>{{department.clubDesc}}</view>
 <view class = 'title'>部门介绍</view>
-<view wx:for = '{{department}}' wx:key = '*this'>
-  <view class = 'department'>{{item.name}} </view>
-  <view class = 'synopsis'>{{item.de}}</view>
+<view wx:for = '{{department.dept}}' wx:key = '*this'>
+  <view class = 'department'>{{item.deptName}} </view>
+  <view class = 'synopsis'>
+    <view>{{item.deptDesc}}</view>
+    <view class = 'recruitment'>招新信息</view>
+    <view wx:if="{{item.status}}" class = "recruitmentMessage">
+      <view><text>报名开始时间：</text>{{item.recruitment.startTime}}</view>
+      <view><text>报名截止时间：</text>{{item.recruitment.endTime}}</view>
+      <view><text>报名人数限制：</text>{{item.recruitment.maxNum}}</view>
+      <view><text>QQ群号：</text>{{item.recruitment.qq}}</view>
+      <view><text>招新人数：</text>{{item.recruitment.times}}</view>
+      <view><text>考核轮数：</text>{{item.recruitment.times}}</view>
+      <view><text>考核标准：</text></view><view>{{item.recruitment.standard}}</view>
+      <view><text>补充说明：</text></view><view>{{item.recruitment.add}}</view>
+    </view>
+    <block wx:else>
+      <view class = "recruitmentMessage">未开始招新</view>
+    </block>
+  </view>
 </view>

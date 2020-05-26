@@ -37,7 +37,7 @@
             <image src="{{item.clubPictureUrl}}" class='logo' mode='aspectFit'> </image>
           </view>
           <view class = 'title'>
-            {{item.clubDesc}}
+            {{item.clubName}}
           </view>
         </view>
       </view>
@@ -57,7 +57,7 @@
             <image src="{{item.clubPictureUrl}}" class='logo' mode='aspectFit'> </image>
           </view>
           <view class = 'title'>
-            {{item.clubDesc}}
+            {{item.clubName}}
           </view>
         </view>
       </view>

@@ -37,6 +37,7 @@ Page({
 	},
   organizations_details(e)
   {
+    e.currentTarget.dataset.organization.clubPictureUrl = '' //url在转换为JSON字符串时会出错，所以这个链接去掉
     wx.navigateTo({
 			url: '/organizations-detail/organizations-detail?organization='+ JSON.stringify(e.currentTarget.dataset.organization)
 		})
@@ -61,9 +62,8 @@ Page({
       url: app.data.service_url + 'enteredPage/',
       header: {
         'AUTHORIZATION':'Bearer ' + app.data.token,
-        'content-type':'application/json'
       },
-      method: 'POST',
+      method: 'GET',
       success(res) 
       {
         if(res.data.code == 100)
@@ -127,13 +127,13 @@ Page({
     })
      let that = this;
      wx.request({
-       url: app.data.service_url + 'findPage/',
+       url: app.data.service_url + 'findClubs/',
        header: {
+        'AUTHORIZATION':'Bearer ' + app.data.token,
          'content-type':'application/json'
          //'AUTHORIZATION':'Bearer ' + app.data.token
        },
        data: {
-        school:app.data.school,
         find:that.data.searchMassage,
         leaft:that.data.nextPage //第几页社团
        },

@@ -39,7 +39,7 @@ Page({
   onSelect(event) {
 		if(event.detail.name=='退出登录')
 		{
-			app.data.token = '';
+			app.data.token = '001';
 			app.data.log_on = false;
 			app.data.tempFilePaths = '';
 			app.data.name = '';
