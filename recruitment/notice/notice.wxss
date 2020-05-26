@@ -1,44 +1,50 @@
 .container{
   border-radius: 10px;
-  border:1px solid rgb(70, 67, 67);
-  box-shadow:3px 3px 3px gray;
+  border:1px solid rgb(213, 213, 213);
+  box-shadow:2px 2px 5px rgb(109, 109, 109);
   /*边框阴影*/
-  width: 90%;
-  
+  background-color: white;
+  width: 95%;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
 .title{
+  color: black;
   margin: auto;
   margin-top: 5px;
   text-align: center;
   font-weight: bold;
+  margin: 0px 8px 0px 8px;
 }
 
 .text{
+  color: black;
   text-align: justify;
-  margin: 0px 5px 0px 5px;
+  margin: 0px 8px 0px 8px;
   font-size: 90%;
   line-height: 1.25em;
 }
 
 .tail{
+  color: rgb(80, 74, 74);
   display: flex;
   flex-flow: row;
   font-size: 80%;
-  margin: 0px 5px 5px 5px;
+  margin: 0px 8px 5px 8px;
 }
 
 .organ{
-  color: rgb(146, 142, 142);
   text-align: left;
   flex: auto;
 }
 
 .date{
-  color: rgb(146, 142, 142);
   text-align: right;
   width: auto;
+}
+
+page{
+  background-color: #f0eeee;
 }

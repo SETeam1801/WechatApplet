@@ -6,11 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    arrays:[],
-    title1:'关于新版校园网主页上线测试的通知',
-    text1:'各单位、部门：\n  根据学校工作安排，经过深入调研、专题研究、策划制作和反复调试，已对我校校园网主页进行了全新改版。为确保新版校园网主页正式上线运行平稳，现将新版主页上线测试（校园网用户测试网址：http://gduttest.gdut.edu.cn/），请大家试用并于5月25日12:00前反馈宝贵意见。\n  联系人：卢迪，电话：39322041，邮箱: 164249467@qq.com',
-    organ1:'党委宣传部',
-    date1:'2020/5/22'
+    arrays:[]
   },
  
   onLoad: function (options) {
@@ -20,13 +16,12 @@ Page({
       data:{},
       mathod:'GET',
       header:{
-        // 'content-Type': 'application/json'
         'AUTHORIZATION' : 'Bearer  ' + app.data.token
       },
       success: function(res){
-        console.log(res.data);
+        console.log(res.data.data);
         that.setData({
-        
+          arrays : res.data.data
         });
       },
       fail:function(res){

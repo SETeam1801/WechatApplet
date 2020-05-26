@@ -1,30 +1,9 @@
-<view class = 'container'>
-  <view class='title'>{{title1}}</view>
-  <view class='text'><text space="emsp" decode="true">{{text1}}</text></view>
+<view wx:for="{{arrays}}" wx:key = "*this" wx:for-index="index" class = 'container'>
+  <view class='title'>{{item.title}}</view>
+  <view class='text'><text space="emsp" decode="true" style="text-indent:2em;">  {{item.text}}</text></view>
   <view class="tail">
-    <view class="organ">{{organ1}}</view>
-    <view class="date">{{date1}}</view>
+    <view class="organ">{{item.clubName}}</view>
+    <view class="date">{{item.date}}</view>
   </view>
 </view>
 
-<view class = 'container'> 
-  <view class='title'>{{title1}}</view>
-  <view class='text'><text space="emsp" decode="true">{{text1}}</text></view>
-  <view class="tail">
-    <view class="organ">{{organ1}}</view>
-    <view class="date">{{date1}}</view>
-  </view>
-</view>
-
-<view class = 'container'>
-  <view class='title'>{{title1}}</view>
-  <view class='text'><text space="emsp" decode="true">{{text1}}</text></view>
-  <view class="tail">
-    <view class="organ">{{organ1}}</view>
-    <view class="date">{{date1}}</view>
-  </view>
-</view> 
-
-<view wx:for="{{data}}">
-  {{item}}
-</view>
