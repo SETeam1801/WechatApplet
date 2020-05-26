@@ -1,36 +1,55 @@
 // index/second/notice.js
+const app = getApp()
 Page({
-
+  i : '0',  
   /**
    * 页面的初始数据
    */
   data: {
-    notice1:
-    "关于***社团招新的通知",
-    text1:"亲爱的***同学，你好！恭喜你通过了***社团的第一轮招新，下面是第二轮招新的信息，请查收！",
-    notice2:"关于***社团的通知",
-    notice3:"关于***社团的通知"
-
+    arrays:[]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
+ 
   onLoad: function (options) {
-   /*  wx.request({
-      url: 'url',
-      //还不知道用什么链接
-      data:{},//给通知的数据一个初始空值呢
+    var that = this;
+     wx.request({
+      url: app.data.service_url + 'findNotices/' + '0',
+      data:{},
       mathod:'GET',
       header:{
-        'content-Type': 'application/json'
+        'AUTHORIZATION' : 'Bearer  ' + app.data.token
       },
-      success: function(res){//如果成功的话
+      success: function(res){
+        console.log(res.data.data);
         that.setData({
-          data: res.data,
+          arrays : res.data.data
         });
+      },
+      fail:function(res){
+        //关闭提示框
+        that.setData({
+          hidden: true
+        })
       }
-    }) */
+    }) 
   },
+
+   /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+    // 下面填写需要下拉时的函数 自己定
+     var k = this
+     wx.showToast({
+       title: '刷新中',
+       icon: 'loading',
+       duration: 500
+     })
+     // 下拉刷新 调用onload函数
+     k.onLoad()
+    // 注意现在需要使用停止函数停止刷新
+     wx.stopPullDownRefresh()
+   },
+ 
+ 
 
 })

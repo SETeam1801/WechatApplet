@@ -1,15 +1,50 @@
 .container{
-  text-indent: 1em;
-  color: black;
-  background: white;
-/*   text-align-last: justify; */
-  border-color: grey;
-  border-width: 3px;
-  border-style: solid;
-  border-radius: 15px;
-  
-  width: 90%;
+  border-radius: 10px;
+  border:1px solid rgb(213, 213, 213);
+  box-shadow:2px 2px 5px rgb(109, 109, 109);
+  /*边框阴影*/
+  background-color: white;
+  width: 95%;
   margin: auto;
-  top: 20px;
+  margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.title{
+  color: black;
+  margin: auto;
+  margin-top: 5px;
+  text-align: center;
+  font-weight: bold;
+  margin: 0px 8px 0px 8px;
+}
+
+.text{
+  color: black;
+  text-align: justify;
+  margin: 0px 8px 0px 8px;
+  font-size: 90%;
+  line-height: 1.25em;
+}
+
+.tail{
+  color: rgb(80, 74, 74);
+  display: flex;
+  flex-flow: row;
+  font-size: 80%;
+  margin: 0px 8px 5px 8px;
+}
+
+.organ{
+  text-align: left;
+  flex: auto;
+}
+
+.date{
+  text-align: right;
+  width: auto;
+}
+
+page{
+  background-color: #f0eeee;
 }
