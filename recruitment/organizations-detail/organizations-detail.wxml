@@ -10,7 +10,7 @@
 </view>
 <view class = 'title'>社团介绍</view>
 <view class = 'synopsis'>{{department.clubDesc}}</view>
-<view class = 'title'>部门介绍</view>
+<view class = 'title' id = 'titleButtom'>部门介绍</view>
 <view wx:for = '{{department.dept}}' wx:key = '*this'>
   <view class = 'department'>{{item.deptName}} </view>
   <view class = 'synopsis'>
@@ -25,9 +25,29 @@
       <view><text>考核轮数：</text>{{item.recruitment.times}}</view>
       <view><text>考核标准：</text></view><view>{{item.recruitment.standard}}</view>
       <view><text>补充说明：</text></view><view>{{item.recruitment.add}}</view>
+      <view style = 'width:100%; text-align:right;'><button class="button" hover-class='button_hover' bindtap='sign_up' data-organization="{{item.recruitment}}" data-deptname = '{{item.deptName}}'>点击报名</button></view>
     </view>
     <block wx:else>
       <view class = "recruitmentMessage">未开始招新</view>
     </block>
   </view>
+</view>
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modalDlg" wx:if="{{showModal}}">
+    <view>社团：{{clubName}}</view>
+    <view>部门：{{deptName}}</view>
+    <view>名字：{{stuName}}</view>
+    <view>学号：{{stuId}}</view>
+    <view>电话：{{phoNum}}</view>
+    <view>邮箱：{{mailbox}}</view>
+    <view>简介：</view>
+    <textarea class='test' placeholder='请输入个人简介' bindinput="getWords" maxlength='{{maxTextLen}} ' placeholder-style = "font-size :3.7vw; color:#747474 " ></textarea>
+    <view>
+      <view class = 'submit'>
+        <button class="button" hover-class='button_hover' bindtap='submit' data-organization="{{item.recruitment}}" data-deptname = '{{item.deptName}}'>提交</button>
+      </view>
+      <view class = 'cancel'>
+        <button class="button" hover-class='button_hover' bindtap='cancel' data-organization="{{item.recruitment}}" data-deptname = '{{item.deptName}}'>取消</button>
+      </view>
+    </view>
 </view>

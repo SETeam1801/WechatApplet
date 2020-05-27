@@ -87,7 +87,8 @@ Page({
   {
     wx.showToast({
       title: '正在登录！',
-      icon:'none'
+      icon:'loading',
+      duration: 500
     })
     if(!(/^1[34578]\d{9}$/.test(this.data.pho_num))) 
     {

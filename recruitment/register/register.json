@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "注册",
+  "enablePullDownRefresh":false,
   "usingComponents": {	
     "van-image": "../vant-weapp/dist/image/index",
     "van-action-sheet": "../vant-weapp/dist/action-sheet/index",

@@ -35,11 +35,12 @@ width:40%;
   position:absolute;
   top:40%;
   display:flex;
+  width:55%;
   color:rgb(57, 4, 101)
 }
 .button
 {
-  width:44%;
+  width:46%;
   position:absolute;
   top:57%;
   display:flex;
