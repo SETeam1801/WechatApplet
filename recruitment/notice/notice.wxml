@@ -1,4 +1,4 @@
-<view wx:for="{{arrays}}" wx:key = "*this" wx:for-index="index" class = 'container'>
+<view wx:for="{{arrays}}" wx:key = "*this" class = 'container'>
   <view class='title'>{{item.title}}</view>
   <view class='text'><text space="emsp" decode="true" style="text-indent:2em;">  {{item.text}}</text></view>
   <view class="tail">
@@ -6,4 +6,3 @@
     <view class="date">{{item.date}}</view>
   </view>
 </view>
-
