@@ -6,36 +6,12 @@ Page({
     password:''
   },
   register_post(){
-   /* wx.showToast({
-      title: '正在登录！',
-      icon:'none'
-    })
-    wx.showToast({
-      title: '登录成功！',
-        icon:'none'
-    })
-    app.data.log_on = true;
-    app.data.name = 'res.data.userName';
-    app.data.school = 'res.data.school';
-    app.data.college ='res.data.college';
-    app.data.myclass = 'res.data.class';
-    app.data.stuID = 'res.data.stuId';
-    app.data.phone = 'res.data.phoNum';
-    app.data.mailbox = 'res.data.mailbox';
-    app.data.tempFilePaths = 'res.data.tempFilePaths';
-    setTimeout(function () {
-      wx.switchTab({
-        url: '/index/index2'
-      })
-    }, 2000);
-    return;*/
     let that = this; 
     app.data.phone = that.data.pho_num;
     wx.request({
       url: app.data.service_url + 'login/',
       header: {
         'content-type':'application/json',
-        //'AUTHORIZATION':'Bearer ' + app.data.token
       },
       data: {
         passWord: that.data.password,
@@ -57,12 +33,13 @@ Page({
           app.data.myclass = res.data.data.class;
           app.data.stuID = res.data.data.stuId;
           app.data.mailbox = res.data.data.mailbox;
-          app.data.tempFilePaths = res.data.data.tempFilePaths;
+          app.data.tempFilePaths = res.data.data.img;
+          console.log(app.data.tempFilePaths)
           setTimeout(function () {
             wx.switchTab({
-              url: '/index/index2'
+              url: '/index/index'
             })
-          }, 2000);
+          }, 1000);
         }
         else
         {

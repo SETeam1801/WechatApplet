@@ -10,7 +10,7 @@
 {
   font-size: 40rpx;
   height:40px;
-  width: 100%;
+  width: 95%;
   margin-top: 30rpx;
   background-color: #575555;
   color: rgb(252, 252, 252);

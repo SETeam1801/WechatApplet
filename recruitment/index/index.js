@@ -2,28 +2,17 @@ const app = getApp()
 var systemInfo = wx.getSystemInfoSync();
 Page({
   data: {
+    token:'',
+    school:'',
     topNumEntered:0,
     topNumFind:0,
     searchMassage:'',
     nextPage:0,
-    organizations_entered:[{clubId:1, clubDesc:'全国只有50支，广东省只有两支--QG工作室', clubPictureUrl:"/学生端/首页/发现二级页.png", clubName:"QG工作室",
-      entered:[
-        {
-        department:"our",
-        lastRound:"1",
-        lastState:"ggg",
-        nextRound:"2"},
-        {
-        department:"shit",
-        lastRound:"1",
-        lastState:"gg",
-        nextRound:"2"}
-      ]
-    }],
+    organizations_entered:[],
     loadingEn:false,
     loadingFailedEn:false,
     loadingSuccess:false,
-    organizations_find:[{clubId:1, clubDesc:'全国只有50支，广东省只有两支--QG工作室', clubPictureUrl:"/学生端/首页/发现二级页.png", clubName:"青年创新创业社团",}],
+    organizations_find:[],
     //发现页数据是否加载完
     noMore: false,
     //发现页加载中
@@ -34,10 +23,17 @@ Page({
 	onShow() {
     this.getTabBar().init();
     this.setData({topNumFind: 0,topNumEntered:0});
+    if(this.data.token != app.data.token || this.data.school != app.data.school)
+    {
+      this.search('');
+      this.entered_page_post();
+      this.data.token = app.data.token;
+    }
 	},
   organizations_details(e)
   {
-    e.currentTarget.dataset.organization.clubPictureUrl = '' //url在转换为JSON字符串时会出错，所以这个链接去掉
+    //url在转换为JSON字符串时会出错，所以这个链接去掉
+    e.currentTarget.dataset.organization.clubPictureUrl = '' 
     wx.navigateTo({
 			url: '/organizations-detail/organizations-detail?organization='+ JSON.stringify(e.currentTarget.dataset.organization)
 		})
@@ -47,15 +43,16 @@ Page({
     console.log(e.detail.scrollTop)
     if(e.detail.scrollTop < -100 && this.data.loadingEn == false && this.data.loadingSuccess == false && this.data.loadingFailedEn == false)
     {
-      console.log(100)
       this.entered_page_post();
     }
   },
   entered_page_post(){
+    this.data.organizations_entered = [];
     this.setData({
       loadingEn: true,
       loadingSuccess: false,
       loadingFailedEn:false,
+      organizations_entered:this.data.organizations_entered
     })
     let that = this;
     wx.request({
@@ -68,8 +65,8 @@ Page({
       {
         if(res.data.code == 100)
         {
-          that.data.organizations_find = res.data.data;
-          that.setData({organizations_find:that.data.organizations_find, loadingEn: false, loadingSuccess: true, loadingFailedEn:false,});
+          that.data.organizations_entered = res.data.data;
+          that.setData({organizations_entered:that.data.organizations_entered, loadingEn: false, loadingSuccess: true, loadingFailedEn:false,});
           setTimeout(function () {
             that.setData({
               loadingEn: false, 
@@ -113,7 +110,7 @@ Page({
    },
   search(e)
   {
-    this.data.searchMassage = e.detail.value;
+    this.data.searchMassage = (e.detail == undefined ? '' : e.detail.value);
     this.data.nextPage = 0;
     this.data.organizations_find = [];
     this.setData({organizations_find:this.data.organizations_find});

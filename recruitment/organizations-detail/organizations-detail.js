@@ -1,6 +1,5 @@
 const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -13,23 +12,42 @@ Page({
     clubName:'',
     myDesc:'',
     entered:true,
-    organization:[],
-    //department:[],
-    showModal:false,
+    organization:{},
     department:{
-      clubName:'QG工作室',
-      clubDesc:'   \t安徽中医药大学大学生书\n画协会，由一群书画爱好者成立，初建于1984年，如今已经走过34载春秋岁月，是本校历史最悠久的社团。书协最初的创办遵循“弘扬中华书画艺术，繁荣校园传统文化，提高学子文化素质，扶持校院书画新人”的宗旨，以传承中华传统工艺—书法、绘画、剪纸等为己任',
+      clubName:'加载中...',
+      clubDesc:'加载中...',
       clubPictureUrl:[],
-      dept:[{deptName:"嵌入式", deptDesc:"   安徽中医药大学大学生书画协会，由一群书画爱好者成立，初建于1984年，如今已经走过34载春秋岁月，是本校历史最悠久的社团。书协最初的创办遵循“弘扬中华书画艺术，繁荣校传统文化，提高学子文化素质，扶持校院书画新人”的宗旨，以传承中华传统工艺—书法、绘画、剪纸等为己任.", 
-      status:1, recruitment:{startTime:"2015-03-06 12:00:00", endTime:"2030-03-08 12:00:00", deptId:"部门id", qq:"861245461", times:3, maxNum:10, standard:"只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，", add:"只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，"}},
-            {deptName:"后台", deptDesc:"安徽中医药大学大学生书画协会，由一群书画爱好者成立，初建于1984年，如今已经走过34载春秋岁月，是本校历史最悠久的社团。书协最初的创办遵循“弘扬中华书画艺术，繁荣校园传统文化，提高学子文化素质，扶持校院书画新人”的宗旨，以传承中华传统工艺—书法、绘画、剪纸等为己任", 
-            status:1, recruitment:{startTime:"2015-03-06 12:00:00", endTime:"2015-03-08 12:00:00", deptId:"部门id", qq:"861245461", times:2, maxNum:10, standard:"只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，", add:"只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，"}},
-            {deptName:"前端", deptDesc:"安徽中医药大学大学生书画协会，由一群书画爱好者成立，初建于1984年，如今已经走过34载春秋岁月，是本校历史最悠久的社团。书协最初的创办遵循“弘扬中华书画艺术，繁荣校园传统文化，提高学子文化素质，扶持校院书画新人”的宗旨，以传承中华传统工艺—书法、绘画、剪纸等为己任", 
-            status:0, recruitment:{startTime:"2015-03-06 12:00:00", endTime:"2015-03-08 12:00:00", deptId:"部门id", qq:"861245461", times:2, maxNum:10, standard:"只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，", add:"只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，"}},
-            {deptName:"图形组", deptDesc:"安徽中医药大学大学生书画协会，由一群书画爱好者成立，初建于1984年，如今已经走过34载春秋岁月，是本校历史最悠久的社团。书协最初的创办遵循“弘扬中华书画艺术，繁荣校园传统文化，提高学子文化素质，扶持校院书画新人”的宗旨，以传承中华传统工艺—书法、绘画、剪纸等为己任", 
-            status:1, recruitment:{startTime:"2030-03-06 12:00:00", endTime:"2031-03-08 12:00:00", deptId:"部门id", qq:"861245461", times:2, maxNum:10, standard:"只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，", add:"只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，只要单身小姐姐，"}}]
-    }
+      dept:[{deptName:"加载中...", deptDesc:"加载中...", status:0}]
+    },
+    departmentFailed:{
+      clubName:'加载失败',
+      clubDesc:'加载失败',
+      clubPictureUrl:[],
+      dept:[{deptName:"加载失败", deptDesc:"加载失败", status:0}]
+    },
+    showModal:false,
   },
+  addEnteredMessage()
+   {
+    let lenEntered = this.data.organization.entered.length;
+    let lenDept = this.data.department.dept.length;
+    console.log(this.data.organization.entered);
+    console.log(lenEntered);
+    console.log(this.data.department.dept)
+    console.log(lenDept)
+    for(let i = 0; i < lenEntered; i++)
+    {
+      for(let j = 0; j < lenDept; j++)
+      {
+        if(this.data.department.dept[j].status == 1 && this.data.department.dept[j].recruitment.deptId == this.data.organization.entered[i].department)
+        {
+          this.data.department.dept[j].entered = this.data.organization.entered[i]
+        }
+        
+        console.log(j);
+      }
+    }
+   },
   show_club(){
     let that = this;
     wx.request({
@@ -42,14 +60,24 @@ Page({
       {
         if(res.data.code == 100)
         {
-          //that.data.department = res.data.data
-          that.data.department.clubPictureUrl = res.data.data.clubPictureUrl
+          that.data.department = res.data.data
+          if(that.data.organization.entered != undefined)
+          {
+            that.addEnteredMessage()
+            that.data.entered = true;
+          }
+          that.setData({department:that.data.department});
+        }
+        else
+        {
+          that.data.department = that.data.departmentFailed;
           that.setData({department:that.data.department});
         }
        },
        fail()
        {
-        
+        that.data.department = that.data.departmentFailed;
+        that.setData({department:that.data.department});
        }
      });
    },
@@ -58,16 +86,15 @@ Page({
    */
   onLoad: function (options) {
     this.data.organization = JSON.parse(options.organization)
-    console.log(this.data.organization)
     wx.setNavigationBarTitle({
       title: this.data.organization.clubName
     })
-    this.setData({clubName:this.data.organization.clubName})
+    this.setData({clubName:this.data.organization.clubName,
+      stuName:app.data.name, 
+      stuId:app.data.stuID, 
+      phoNum:app.data.phone,
+      mailbox:app.data.mailbox, })
     this.show_club()
-    if(this.data.organization.entered == undefined)
-      this.data.entered = false;
-    else
-      this.data.entered = true;
   },
   sign_up_post:function(deptId)
   {
@@ -97,7 +124,7 @@ Page({
       {
         if(res.data.code == 100)
         {
-          this.setData({showModal:false})
+          that.setData({showModal:false})
           wx.showToast({
             title: "报名成功",
             icon:"success",
@@ -107,11 +134,20 @@ Page({
         else
         {
           if(res.data.message != undefined)
-            wx.showToast({
-              title:res.data.message + ",报名失败",
-              icon:'none',
-              duration: 2000
-            })
+          {
+            if(res.data.code == 400)
+              wx.showToast({
+                title:"不可重复报名",
+                icon:'none',
+                duration: 2000
+              })
+            else
+              wx.showToast({
+                title:res.data.message + ",报名失败",
+                icon:'none',
+                duration: 2000
+              })
+          }
           else
           {
             wx.showToast({
@@ -134,7 +170,15 @@ Page({
   },
   sign_up:function(e)
   {
-    console.log(e)
+    if(app.data.log_on == false)
+    {
+      wx.showToast({
+        title: "请先登录",
+        icon:'none',
+        duration: 2000
+      })
+      return;
+    }
     let curTime = new Date()
     let finTime = new Date(e.currentTarget.dataset.organization.endTime)
     let staTime = new Date(e.currentTarget.dataset.organization.startTime)
@@ -168,48 +212,6 @@ Page({
   {
     this.data.myDesc = e.detail.value;
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
   /**
    * 用户点击右上角分享
    */

@@ -14,21 +14,46 @@
 <view wx:for = '{{department.dept}}' wx:key = '*this'>
   <view class = 'department'>{{item.deptName}} </view>
   <view class = 'synopsis'>
-    <view>{{item.deptDesc}}</view>
+    <view class = 'recruitment'>部门简介</view>
+    <view class = "recruitmentMessage">{{item.deptDesc}}</view>
     <view class = 'recruitment'>招新信息</view>
     <view wx:if="{{item.status}}" class = "recruitmentMessage">
       <view><text>报名开始时间：</text>{{item.recruitment.startTime}}</view>
       <view><text>报名截止时间：</text>{{item.recruitment.endTime}}</view>
       <view><text>报名人数限制：</text>{{item.recruitment.maxNum}}</view>
       <view><text>QQ群号：</text>{{item.recruitment.qq}}</view>
-      <view><text>招新人数：</text>{{item.recruitment.times}}</view>
+      <view><text>招新人数：</text>{{item.recruitment.recruitNum}}</view>
       <view><text>考核轮数：</text>{{item.recruitment.times}}</view>
-      <view><text>考核标准：</text></view><view>{{item.recruitment.standard}}</view>
-      <view><text>补充说明：</text></view><view>{{item.recruitment.add}}</view>
-      <view style = 'width:100%; text-align:right;'><button class="button" hover-class='button_hover' bindtap='sign_up' data-organization="{{item.recruitment}}" data-deptname = '{{item.deptName}}'>点击报名</button></view>
+      <view><text>考核标准：</text></view><view style="padding-left: 1vw;padding-right: 1vw;">{{item.recruitment.standard}}</view>
+      <view><text>补充说明：</text></view><view style="padding-left: 1vw;padding-right: 1vw;">{{item.recruitment.add}}</view>
+      <block wx:if = "{{item.entered == undefined}}">
+        <view style = 'width:100%; text-align:right;'>
+          <button class="button" hover-class='button_hover' bindtap='sign_up' data-organization="{{item.recruitment}}" data-deptname = '{{item.deptName}}'>报名</button>
+        </view>
+      </block>
     </view>
     <block wx:else>
       <view class = "recruitmentMessage">未开始招新</view>
+    </block>
+    <block wx:if = "{{item.entered != undefined && item.status != 0}}"> 
+      <view class = 'recruitment'>我的考核</view>
+      <view class = 'myTest'>
+        <block wx:if = "{{item.entered.lastRound != ''}}">
+          <view class = "recruitmentMessage">
+            <text>上轮考核：</text>{{item.entered.lastRound}}---- >{{item.entered.lastState}}
+          </view>
+        </block>
+        <block wx:if = "{{item.entered.currentRound != ''}}">
+          <view class = "recruitmentMessage">
+            <text>当前考核：</text>{{item.entered.currentRound}}
+          </view>
+        </block>
+        <block wx:if = "{{item.entered.nextRound != ''}}">
+          <view class = "recruitmentMessage">
+            <text>下轮考核：</text>{{item.entered.nextRound}}
+          </view>
+        </block>
+      </view>
     </block>
   </view>
 </view>

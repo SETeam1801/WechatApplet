@@ -96,6 +96,42 @@ Page({
         mailboxerror: '',
       });
   },
+  uploadpicture()
+  {
+    let that = this;
+    wx.uploadFile({
+      url: App.data.service_url + 'uploadAvatar/',
+      header: 
+      {
+        'AUTHORIZATION':'Bearer ' + App.data.token,
+        "Content-Type": "multipart/form-data",
+      }, // 
+      filePath:that.data.tempFilePaths,
+      name:'img',
+      success: function(res)
+      {
+        let mess = JSON.parse(res.data)
+        if(mess.code == 100)
+        {
+          that.setData({tempFilePaths:mess.url})
+          App.data.tempFilePaths = that.data.tempFilePaths;
+        }
+        else
+        {
+          wx.showToast({
+            title: mess.message,
+            icon:'none'
+          })
+        }
+      },
+      fail: function(res) {
+        wx.showToast({
+          title: '网络出现问题,上传头像失败!',
+            icon:'none'
+        })
+      }
+    })
+  },
   post_information()
   {
     let that = this; 
@@ -104,8 +140,9 @@ Page({
       icon:'none'
     })
     wx.request({
-      url: that.data.service_url + 'changePersonalInformation/',
+      url: App.data.service_url + 'changePersonalInformation/',
       header: {
+        'AUTHORIZATION':'Bearer ' + App.data.token,
         'content-type': 'application/json'
       },
       data: {
@@ -125,6 +162,8 @@ Page({
             title: '修改信息成功！',
               icon:'none'
           })
+          if(that.data.tempFilePaths != undefined && that.data.tempFilePaths != '' && that.data.tempFilePaths != App.data.tempFilePaths)
+            that.uploadpicture();
           App.data.name = that.data.name;
           App.data.school = that.data.school;
           App.data.college = that.data.college;

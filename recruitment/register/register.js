@@ -6,13 +6,6 @@ Page({
    */
   data: {
     service_url:app.data.service_url,
-    show: false,
-    actions: 
-    [
-      {
-        name: '从手机相册中选择'
-      }
-    ],
     tempFilePaths: app.data.tempFilePaths,
     name: '辜仰淦',
     school: '广东工业大学',
@@ -38,19 +31,42 @@ Page({
     readonly: false,
     modify: true,
   },
+  uploadpicture()
+  {
+    let that = this;
+    wx.uploadFile({
+      url: that.data.service_url + 'uploadAvatar/',
+      header: 
+      {
+        'AUTHORIZATION':'Bearer ' + app.data.token,
+        "Content-Type": "multipart/form-data",
+      }, // 
+      filePath:that.data.tempFilePaths,
+      name:'img',
+      success: function(res)
+      {
+        let mess = JSON.parse(res.data)
+        if(mess.code == 100)
+        {
+          app.data.tempFilePaths = mess.url;
+        }
+        else
+        {
+          wx.showToast({
+            title: mess.message,
+            icon:'none'
+          })
+        }
+      },
+      fail: function(res) {
+        wx.showToast({
+          title: '网络出现问题,上传头像失败!',
+            icon:'none'
+        })
+      }
+    })
+  },
   register_post(){
-    /*app.data.log_on = true;
-    app.data.name = this.data.name;
-    app.data.school = this.data.school;
-    app.data.college =this.data.college;
-    app.data.myclass = this.data.myclass;
-    app.data.stuID = this.data.stuID;
-    app.data.phone = this.data.phone;
-    app.data.mailbox = this.data.mailbox;
-    console.log(this.data.post),
-    wx.switchTab({
-      url: '/index/index2'
-    })*/
     let that = this; 
     wx.showToast({
       title: '正在提交注册信息！',
@@ -72,7 +88,6 @@ Page({
         userName: that.data.name,
       },
       method: 'POST',
-
       success(res) {
         if(res.data.code == 100)
         {
@@ -85,19 +100,20 @@ Page({
           app.data.stuID = that.data.stuID;
           app.data.phone = that.data.phone;
           app.data.mailbox = that.data.mailbox;
+          if(that.data.tempFilePaths != undefined && that.data.tempFilePaths != '' && that.data.tempFilePaths != app.data.tempFilePaths)
+            that.uploadpicture();
           wx.showToast({
             title: '注册成功！',
               icon:'none'
           })
           setTimeout(function () {
             wx.switchTab({
-              url: '/index/index2'
+              url: '/index/index'
             })
-          }, 2000);
+          }, 1000);
         }
         else
         {
-          console.log(res.data.message);
           wx.showToast({
             title: res.data.message,
             icon:'none'
@@ -112,23 +128,6 @@ Page({
         })
       }
     });
-    /*wx.uploadFile({
-      url: this.data.service_url,
-      filePath:this.data.tempFilePaths,
-      name:this.data.name,
-      header: {'content-type':'multipart/form-data'}, // 设置请求的 header
-      success: function(res)
-      {
-        app.data.tempFilePaths = this.data.tempFilePaths;
-        console.log(res);
-      },
-      fail: function(res) {
-        wx.showToast({
-          title: '网络出现问题,注册失败!',
-            icon:'none'
-        })
-      }
-    })*/
   },
   register_post_button()
   {

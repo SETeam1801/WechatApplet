@@ -98,7 +98,6 @@ view
 /* 弹出层 */
 .modalDlg{
   width: 70vw;
-  height: 100vw;
   position: fixed;
   top: 20vw;
   left:9vw;
@@ -133,4 +132,10 @@ view
   position:relative;
   top:3vw;
   left:19vw
+}
+.myTest
+{
+  border-style:solid;
+  border-color: rgba(57, 4, 101, 0.679);
+  background-color: rgba(57, 4, 101, 0.193);
 }

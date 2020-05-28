@@ -30,7 +30,7 @@ Page({
 	},
  
 	onLoad: function () {
-		
+		console.log(app.data.token)
 	},
 	onClose() {
     this.setData({ show: false });
