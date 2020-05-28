@@ -1,7 +1,7 @@
 /* index/second/feedback.wxss */
 /* @import "style.wxss"; */
 
-.container{
+/* .container{
   position: fixed;
   display: flex;
   height: 80%;
@@ -40,4 +40,31 @@
   text-align:right;
   padding-right:5%;
   
-  }
+  } */
+
+.btn1{
+  width: 50%;
+  margin-top: 20rpx;
+  background-color: rgb(63, 127, 223);
+  color: white;
+  font-size: 16px;
+}
+
+.btn2{
+  width: 50%;
+  margin-top: 20rpx;
+  background-color: rgb(228, 81, 81);
+  color: white;
+  font-size: 16px;
+}
+
+.container{
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.text{
+  font-size: 16px;
+  line-height: 28px;
+}

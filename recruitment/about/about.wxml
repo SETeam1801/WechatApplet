@@ -1,3 +1,6 @@
-<view class='p'>{{synopsis}}</view>
-<view class='p'>{{phone}}</view>
-<view class='p'>{{mailbox}}</view>
+<view class="container">
+  <view class="text">
+    <text space="emsp" decode="true" style="text-indent:2em;">{{text}}</text>
+  </view>
+  <view class="tail"><text>{{tail}}</text></view>
+</view>

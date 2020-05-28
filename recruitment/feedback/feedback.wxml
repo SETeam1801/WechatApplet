@@ -1,8 +1,19 @@
-
-<view class='container'>
+<!-- <view class='container'>
   <textarea class='test' placeholder='请输入您的反馈或建议' bindinput="getWords" maxlength='{{maxTextLen}} ' bindblur='get'></textarea>
 </view>
 <view class='next'>
  <view class='right' >{{textLen}}/{{maxTextLen}}</view>
 <button class = 'button1' hover-class='button1_hover'>确定</button>
 </view>
+ -->
+<view class="container">
+  <text class="text" space="emsp" decode="true" style="text-indent:2em;">须知：
+  1.本小程序仅提供查阅社团及其部门、报名社团、查阅面试情况、接受社团通知等功能。对于社团内部的招新情况并不进行干预，若您对您的面试结果持有怀疑态度，请及时与社团招新负责人反映，避免影响到自己的社团招新。
+  
+  2.若您是社团、学生组织的负责人，想要使用本小程序及其管理平台，可以通过下方链接联系我们。若您是高校学生，也欢迎对我们的小程序提出建议与意见。非常感谢您对我们小程序的支持！
+  </text>
+</view>
+
+ <button class="btn1" open-type="contact">联系我们</button>
+
+<button class="btn2" open-type='feedback'>反馈问题</button>

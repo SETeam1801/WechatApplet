@@ -1,10 +1,16 @@
 /* index/second/about.wxss */
-.p {
-  text-indent: 1em;
-  background: rgb(210, 211, 213);
-  border-style: none;
-  border-top-style:none;
-  border-right-style:none;
-  border-bottom-style:groove;
-  border-left-style:none;
+.container{
+  font-size: 16px;
+  width: 90%;
+  margin: auto;
+  margin-top: 10px;
+  line-height: 28px;
+}
+
+.text{
+
+}
+
+.tail{
+  text-align: right;
 }
