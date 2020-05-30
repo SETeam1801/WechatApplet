@@ -20,12 +20,32 @@ Page({
         'AUTHORIZATION' : 'Bearer  ' + app.data.token
       },
       success: function(res){
-        console.log(res.data.data);
-        that.setData({
-          arrays : res.data.data
-        });
-        that.i++;
-        console.log(that.i)
+        if(res.data.code == 100)
+        {
+          console.log(res.data.data);
+          that.setData({
+            arrays : res.data.data
+          });
+          that.i++;
+          console.log(that.i)
+        }
+        else
+        {
+          if(res.data.code == 110)
+          {
+            wx.showToast({
+              title: "登录状态出现问题，请重新登陆",
+              icon:'none'
+            })    
+          }
+          else
+          {
+            wx.showToast({
+              title: res.data.message,
+              icon:'none'
+            }) 
+          }      
+        }
       },
       fail:function(res){
         //关闭提示框
@@ -104,6 +124,14 @@ Page({
 
   onReachBottom : function(){
      this.loadList();
+  },
+  onShareAppMessage: function() {
+    if (res.from === 'button') {}
+    return {
+      title: '转发',
+      path: '/pages/index/index',
+      success: function(res) {}
+    }
   }
  
 

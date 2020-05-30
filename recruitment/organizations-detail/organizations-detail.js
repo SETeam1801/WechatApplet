@@ -130,6 +130,7 @@ Page({
             icon:"success",
             duration: 2000
           })
+          app.data.enteredRefresh = true;
         }
         else
         {
@@ -142,11 +143,23 @@ Page({
                 duration: 2000
               })
             else
-              wx.showToast({
-                title:res.data.message + ",报名失败",
-                icon:'none',
-                duration: 2000
-              })
+            {
+              if(res.data.code == 110)
+              {
+                wx.showToast({
+                  title: "登录状态出现问题，请重新登陆",
+                  icon:'none'
+                })    
+              }
+              else
+              {
+                wx.showToast({
+                  title:res.data.message + ",报名失败",
+                  icon:'none',
+                  duration: 2000
+                })
+              }
+            }
           }
           else
           {
@@ -215,7 +228,12 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function() {
+    if (res.from === 'button') {}
+    return {
+      title: '转发',
+      path: '/pages/index/index',
+      success: function(res) {}
+    }
   }
 })

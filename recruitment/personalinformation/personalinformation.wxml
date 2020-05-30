@@ -14,7 +14,7 @@
       size = "20"
       verticalxztoux
     />
-    <text slot = "error">请设置头像</text>
+    <text slot = "error">加载失败</text>
   </van-image>
 </view>
 <view class = 'text'><text >\n</text></view>

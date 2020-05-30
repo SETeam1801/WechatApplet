@@ -34,7 +34,9 @@ Page({
           app.data.stuID = res.data.data.stuId;
           app.data.mailbox = res.data.data.mailbox;
           app.data.tempFilePaths = res.data.data.img;
-          console.log(app.data.tempFilePaths)
+          app.data.enteredRefresh = true;
+          app.data.findRefresh = true;
+          app.writeMessage();
           setTimeout(function () {
             wx.switchTab({
               url: '/index/index'
@@ -145,7 +147,12 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function() {
+    if (res.from === 'button') {}
+    return {
+      title: '转发',
+      path: '/pages/index/index',
+      success: function(res) {}
+    }
   }
 })

@@ -2,8 +2,6 @@ const app = getApp()
 var systemInfo = wx.getSystemInfoSync();
 Page({
   data: {
-    token:'',
-    school:'',
     topNumEntered:0,
     topNumFind:0,
     searchMassage:'',
@@ -20,14 +18,47 @@ Page({
 	  //发现页数据是否加载失败
     loadingFailed: false,
   },
+  onLoad()
+  {
+    let that = this;
+    app.data.enteredRefresh = false;
+    app.data.findRefresh = false;
+    wx.getStorage({
+      key: 'message',
+      success: function(res) {
+        console.log(12)
+        app.data.token = res.data.token,
+        app.data.log_on = res.data.log_on,
+        app.data.tempFilePaths = res.data.tempFilePaths,
+        app.data.name = res.data.name,
+        app.data.school = res.data.school,
+        app.data.college = res.data.college,
+        app.data.myclass = res.data.myclass,
+        app.data.stuID = res.data.stuID,
+        app.data.phone = res.data.phone,
+        app.data.mailbox = res.data.mailbox
+        that.entered_page_post();
+        that.search('');
+      },
+      fail()
+      {
+        that.entered_page_post();
+        that.search('');
+      }
+    })
+  },
 	onShow() {
     this.getTabBar().init();
     this.setData({topNumFind: 0,topNumEntered:0});
-    if(this.data.token != app.data.token || this.data.school != app.data.school)
+    if(app.data.enteredRefresh == true)
     {
-      this.search('');
+      app.data.enteredRefresh = false;
       this.entered_page_post();
-      this.data.token = app.data.token;
+    }
+    if(app.data.findRefresh == true)
+    {
+      app.data.findRefresh = false;
+      this.search('');
     }
 	},
   organizations_details(e)
@@ -77,18 +108,28 @@ Page({
         }
          else
          {
-          that.setData({
-            loadingEn: false, 
-            loadingSuccess: false, 
-            loadingFailedEn:true,
-          })
-          setTimeout(function () {
+          if(res.data.code == 110)
+          {
+            wx.showToast({
+              title: "登录状态出现问题，请重新登陆",
+              icon:'none'
+            })    
+          }
+          else
+          {
             that.setData({
               loadingEn: false, 
               loadingSuccess: false, 
-              loadingFailedEn:false,
+              loadingFailedEn:true,
             })
-          }, 2000);
+            setTimeout(function () {
+              that.setData({
+                loadingEn: false, 
+                loadingSuccess: false, 
+                loadingFailedEn:false,
+              })
+            }, 2000);
+          }
          }
        },
        fail()
@@ -161,11 +202,21 @@ Page({
          }
          else
          {
-          that.setData({
-            loading: false,
-            noMore:false,
-            loadingFailed:true
-          })
+          if(res.data.code == 110)
+          {
+            wx.showToast({
+              title: "登录状态出现问题，请重新登陆",
+              icon:'none'
+            })    
+          }
+          else
+          {
+            that.setData({
+              loading: false,
+              noMore:false,
+              loadingFailed:true
+            })
+          }
          }
        },
        fail()
@@ -188,17 +239,13 @@ Page({
       }
     }
   },
-
-  gotonext6()
-  {
-    var i = 0;
-    for(i=0; i < 10; i++)
-    this.data.organizations_find = this.data.organizations_find.concat([{clubId:this.data.organizations_find.length, clubDesc:'全国只有50支，广东省只有两支--QG工作室'}]);
-    this.setData({organizations_find:this.data.organizations_find});
-    this.setData({
-      loading: true,
-    })
-  },
-
-
+  //转发
+  onShareAppMessage: function() {
+    if (res.from === 'button') {}
+    return {
+      title: '转发',
+      path: '/pages/index/index',
+      success: function(res) {}
+    }
+  }
 })

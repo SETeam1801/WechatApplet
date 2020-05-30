@@ -7,15 +7,15 @@ Page({
   data: {
     service_url:app.data.service_url,
     tempFilePaths: app.data.tempFilePaths,
-    name: '辜仰淦',
-    school: '广东工业大学',
-    college: '计算机学院',
-    myclass: '18级软件工程一班',
-    stuID:'3118004952',
-    phone: '18476302611',
-    mailbox: '861245461@qq.com',
-    password1:'86124546q',//密码
-    password2:'86124546q',//重复密码
+    name: '',
+    school: '',
+    college: '',
+    myclass: '',
+    stuID:'',
+    phone: '',
+    mailbox: '',
+    password1:'',//密码
+    password2:'',//重复密码
 
     nameerror: '',
     schoolerror: '',
@@ -49,6 +49,7 @@ Page({
         if(mess.code == 100)
         {
           app.data.tempFilePaths = mess.url;
+          app.writeMessage();
         }
         else
         {
@@ -100,12 +101,15 @@ Page({
           app.data.stuID = that.data.stuID;
           app.data.phone = that.data.phone;
           app.data.mailbox = that.data.mailbox;
+          app.data.enteredRefresh = true;
+          app.data.findRefresh = true;
           if(that.data.tempFilePaths != undefined && that.data.tempFilePaths != '' && that.data.tempFilePaths != app.data.tempFilePaths)
             that.uploadpicture();
           wx.showToast({
             title: '注册成功！',
               icon:'none'
           })
+          app.writeMessage();
           setTimeout(function () {
             wx.switchTab({
               url: '/index/index'
@@ -287,7 +291,12 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function() {
+    if (res.from === 'button') {}
+    return {
+      title: '转发',
+      path: '/pages/index/index',
+      success: function(res) {}
+    }
   }
 })

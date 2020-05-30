@@ -166,5 +166,13 @@ Page({
           }, this)
       }, 1))
 
+  },
+  onShareAppMessage: function() {
+    if (res.from === 'button') {}
+    return {
+      title: '转发',
+      path: '/pages/index/index',
+      success: function(res) {}
+    }
   }
 })

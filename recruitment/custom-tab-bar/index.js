@@ -52,5 +52,5 @@ Component({
 				active: this.data.list.findIndex(item => (item.url === `/${page.route}` || item.url2 === `/${page.route}`))
 			});
 		}
-	}
+	},
 });

@@ -26,5 +26,13 @@ Page({
   get(e){
     this.value=e.detail.value;
   },
+  onShareAppMessage: function() {
+    if (res.from === 'button') {}
+    return {
+      title: '转发',
+      path: '/pages/index/index',
+      success: function(res) {}
+    }
+  }
 })
 

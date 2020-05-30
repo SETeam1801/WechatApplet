@@ -9,12 +9,14 @@ Page({
     tail:"招新通项目开发团队 2020.5.28"
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
+  onShareAppMessage: function() {
+    if (res.from === 'button') {}
+    return {
+      title: '转发',
+      path: '/pages/index/index',
+      success: function(res) {}
+    }
+  }
 
   
 })

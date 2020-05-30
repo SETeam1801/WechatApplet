@@ -115,13 +115,24 @@ Page({
         {
           that.setData({tempFilePaths:mess.url})
           App.data.tempFilePaths = that.data.tempFilePaths;
+          app.writeMessage();
         }
         else
         {
-          wx.showToast({
-            title: mess.message,
-            icon:'none'
-          })
+          if(res.data.code == 110)
+          {
+            wx.showToast({
+              title: "登录状态出现问题，请重新登陆",
+              icon:'none'
+            })    
+          }
+          else
+          {
+            wx.showToast({
+              title: mess.message,
+              icon:'none'
+            })
+          }
         }
       },
       fail: function(res) {
@@ -171,6 +182,8 @@ Page({
           App.data.stuID = that.data.stuID
           App.data.phone = that.data.phone;
           App.data.mailbox = that.data.mailbox;
+          App.data.enteredRefresh = true;
+          App.data.findRefresh = true;
           that.setData({
             buttonname: '修改',
             must: false,
@@ -178,17 +191,27 @@ Page({
             modify: false,
             showsavebutton: false
           });
+          App.writeMessage();
         }
         else
         {
-          that.setData({
-            readonly: false,
-          });
-          console.log(res.data.message);
-          wx.showToast({
-            title: res.data.message,
-            icon:'none'
-          })
+          if(res.data.code == 110)
+          {
+            wx.showToast({
+              title: "登录状态出现问题，请重新登陆",
+              icon:'none'
+            })    
+          }
+          else
+          {
+            that.setData({
+              readonly: false,
+            });
+            wx.showToast({
+              title: res.data.message,
+              icon:'none'
+            })            
+          }
         }
       },
       fail()
@@ -277,4 +300,12 @@ Page({
     else
       this.setData({mailbox:e.detail, mailboxerror:''});
   },
+  onShareAppMessage: function() {
+    if (res.from === 'button') {}
+    return {
+      title: '转发',
+      path: '/pages/index/index',
+      success: function(res) {}
+    }
+  }
 })

@@ -26,7 +26,6 @@ Page({
 			name :app.data.name != undefined ? app.data.name : '登录出错',
 			tempFilePaths:app.data.tempFilePaths != undefined ? app.data.tempFilePaths : ""
 		});
-		console.log(2)
 	},
  
 	onLoad: function () {
@@ -39,6 +38,8 @@ Page({
   onSelect(event) {
 		if(event.detail.name=='退出登录')
 		{
+			app.data.enteredRefresh = true;
+			app.data.findRefresh = true;
 			app.data.token = '001';
 			app.data.log_on = false;
 			app.data.tempFilePaths = '';
@@ -52,6 +53,7 @@ Page({
 			wx.switchTab({
 				url: '/index/index3'
 			})
+			app.writeMessage();
 		}
 	},
 	toggle(type) {
@@ -82,5 +84,13 @@ Page({
 			url: '/about/about'
 		})
 	},
-
+	  //转发
+		onShareAppMessage: function() {
+			if (res.from === 'button') {}
+			return {
+				title: '转发',
+				path: '/pages/index/index',
+				success: function(res) {}
+			}
+		}
 })
