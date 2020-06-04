@@ -193,8 +193,8 @@ Page({
       return;
     }
     let curTime = new Date()
-    let finTime = new Date(e.currentTarget.dataset.organization.endTime)
-    let staTime = new Date(e.currentTarget.dataset.organization.startTime)
+    let finTime = new Date(e.currentTarget.dataset.organization.endTime.replace(/\s/, 'T'))
+    let staTime = new Date(e.currentTarget.dataset.organization.startTime.replace(/\s/, 'T'))
     if(curTime < staTime)
       wx.showToast({
         title: "报名未开始",
